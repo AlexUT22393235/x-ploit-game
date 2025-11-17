@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 9f2f24a591fa3324d921f382df008011
+guid: 7c53899865a93f543b7f27c9b286f67c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6497990605793951882
-    second: 110_0
+      213: 4269824569349884335
+    second: ATLAS 2-1.png_0
   - first:
-      213: -5019347271673613342
-    second: 110_1
+      213: 4247787178962747331
+    second: ATLAS 2-1.png_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 110_0
+      name: ATLAS 2-1.png_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a808c2437008d2a50800000000000000
-      internalID: 6497990605793951882
+      spriteID: fa9c555c2d6714b30800000000000000
+      internalID: 4269824569349884335
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 110_1
+      name: ATLAS 2-1.png_1
       rect:
         serializedVersion: 2
         x: 32
@@ -153,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2e371930042b75ab0800000000000000
-      internalID: -5019347271673613342
+      spriteID: 3cf788bfeeb23fa30800000000000000
+      internalID: 4247787178962747331
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 110_2
+      name: ATLAS 2-1.png_2
       rect:
         serializedVersion: 2
         x: 64
@@ -175,14 +175,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e74a3bd86579d4342bd393bbb62a2c70
-      internalID: -387017295
+      spriteID: 50ee4be493f74b849849ea2b9f15de28
+      internalID: 2069127588
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 110_3
+      name: ATLAS 2-1.png_3
       rect:
         serializedVersion: 2
         x: 96
@@ -197,14 +197,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b47cb3d408103ab4c806d804b13fec71
-      internalID: 738851800
+      spriteID: 0da48cf53200477489eb051f20f25fc5
+      internalID: 1759972673
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 110_4
+      name: ATLAS 2-1.png_4
       rect:
         serializedVersion: 2
         x: 0
@@ -219,14 +219,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62b229f80a682cf4bbe08389fc4f91d5
-      internalID: 302021798
+      spriteID: bcfcc7d87fb234c4ca6b6a944cff5481
+      internalID: -1238142432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 110_5
+      name: ATLAS 2-1.png_5
       rect:
         serializedVersion: 2
         x: 32
@@ -241,14 +241,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9f54b8ebb330ca48ad0fe32aa7004e3
-      internalID: 947113638
+      spriteID: 3d36cd96f389f8e49ac39d9ebdfdf858
+      internalID: -1820174698
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 110_6
+      name: ATLAS 2-1.png_6
       rect:
         serializedVersion: 2
         x: 64
@@ -263,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98ed1ceb1bbd42f4094b2a2b42bce584
-      internalID: 286525488
+      spriteID: ed35709dd5c98484783f47338e030d97
+      internalID: 1560579984
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 110_7
+      name: ATLAS 2-1.png_7
       rect:
         serializedVersion: 2
         x: 96
@@ -285,8 +285,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f2e935454ce6e04dbaa6edb7b419871
-      internalID: -1388185898
+      spriteID: 3cce261b36eee82478632ca5ac2e385f
+      internalID: 927372125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATLAS 2-1.png_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9534f57fc7c5ddb4fbd64a927b3e924d
+      internalID: -2049925403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATLAS 2-1.png_9
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af5f5ce33978ad84bba3eab49f87ca9a
+      internalID: 335421543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATLAS 2-1.png_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1464d9def8a3f684386aac0a0d386e47
+      internalID: 1651497813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATLAS 2-1.png_11
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50157a22dfc6474468bb8d3d7260945d
+      internalID: -1414792667
       vertices: []
       indices: 
       edges: []
@@ -295,7 +383,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c0c2e6d4ed6b19041a282684b9182645
+    spriteID: c489ac4e1e14f3e449a042f52969018d
     internalID: 0
     vertices: []
     indices: 
@@ -307,14 +395,18 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      110_0: 6497990605793951882
-      110_1: -5019347271673613342
-      110_2: -387017295
-      110_3: 738851800
-      110_4: 302021798
-      110_5: 947113638
-      110_6: 286525488
-      110_7: -1388185898
+      ATLAS 2-1.png_0: 4269824569349884335
+      ATLAS 2-1.png_1: 4247787178962747331
+      ATLAS 2-1.png_10: 1651497813
+      ATLAS 2-1.png_11: -1414792667
+      ATLAS 2-1.png_2: 2069127588
+      ATLAS 2-1.png_3: 1759972673
+      ATLAS 2-1.png_4: -1238142432
+      ATLAS 2-1.png_5: -1820174698
+      ATLAS 2-1.png_6: 1560579984
+      ATLAS 2-1.png_7: 927372125
+      ATLAS 2-1.png_8: -2049925403
+      ATLAS 2-1.png_9: 335421543
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
