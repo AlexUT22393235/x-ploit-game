@@ -3,8 +3,8 @@ using UnityEngine.InputSystem;
 
 public class Snowy : MonoBehaviour
 {
-    public float speed = 5f;
-    public float force = 500f;
+    private float speed = 1f;
+    private float force = 180f;
 
     private bool isGrounded = false;
 
@@ -13,7 +13,11 @@ public class Snowy : MonoBehaviour
     private bool onDash = false;
     private bool attacking = false;
 
-    public float velocityFireball = 10f;
+    private bool onDamage = false;
+
+    private float velocityFireball = 1f;
+
+    public int life = 100;
 
     private Vector2 direction;
     private int lastDirection = 1;
@@ -32,6 +36,7 @@ public class Snowy : MonoBehaviour
 
     void Update()
     {
+
         transform.Translate(direction * speed * Time.deltaTime);
 
         if (direction.x < 0)
@@ -45,12 +50,11 @@ public class Snowy : MonoBehaviour
             lastDirection = 1;
         }
 
-        animator.SetFloat("Horizontal", direction.x);
-        animator.SetFloat("Vertical", direction.y);
         animator.SetFloat("Speed", direction.magnitude);
         animator.SetBool("Jump", jumping);
         animator.SetBool("Attack", attacking);
         animator.SetBool("Dash", onDash);
+        animator.SetBool("Damage", onDamage);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -70,16 +74,20 @@ public class Snowy : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
+        // Debug.Log("Detectado salto");
         if (context.performed && isGrounded)
         {
             jumping = true;
-            rb.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+
+            rb.AddForce(Vector2.up * force * 1.3f, ForceMode2D.Impulse);
+
             isGrounded = false;
         }
     }
 
     public void OnDash(InputAction.CallbackContext context)
     {
+        // Debug.Log("Detectado dash");
         if (context.performed && isGrounded)
         {
             onDash = true;
@@ -89,6 +97,7 @@ public class Snowy : MonoBehaviour
 
     public void OnAttack(InputAction.CallbackContext context)
     {
+        // Debug.Log("Detectado ataque");
         if (context.performed && !attacking && isGrounded)
         {
             attacking = true;
@@ -99,7 +108,7 @@ public class Snowy : MonoBehaviour
 
     void ThrowFireball()
     {
-        Vector3 spawnOffset = new Vector3(3f * lastDirection, 0f, 0f);
+        Vector3 spawnOffset = new Vector3(.25f * lastDirection, 0f, 0f);
         GameObject nuevoProyectil = Instantiate(fireballPrefab, transform.position + spawnOffset, transform.rotation);
         Rigidbody2D rb = nuevoProyectil.GetComponent<Rigidbody2D>();
 
@@ -107,6 +116,23 @@ public class Snowy : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(lastDirection < 0 ? -velocityFireball : velocityFireball, 0f);
         }
+    }
+
+    public void TakeDamage(int damageAmount)
+    {
+        onDamage = true;
+        life -= damageAmount;
+        // Debug.Log("Snowy ha recibido " + damageAmount + " de daño. Vida restante: " + life);
+
+        if (life <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Debug.Log("Snowy ha muerto.");
     }
 
     public void DisableDash()
@@ -119,4 +145,8 @@ public class Snowy : MonoBehaviour
         attacking = false;
     }
 
+    public void DisableDamage()
+    {
+        onDamage = false;
+    }
 }
