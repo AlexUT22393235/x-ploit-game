@@ -6,6 +6,7 @@ public class MainMenu : MonoBehaviour
 
     public GameObject optionMenu;
     public GameObject mainMenu;
+    public GameObject roleMenu;
 
     public void OpenOptionPanel()
     {
@@ -16,6 +17,12 @@ public class MainMenu : MonoBehaviour
     {
         mainMenu.SetActive(true);
         optionMenu.SetActive(false);
+        roleMenu.SetActive(false);
+    }
+    public void OpenRolePanel()
+    {
+        mainMenu.SetActive(false);
+        roleMenu.SetActive(true);
     }
 
     public void QuitGame()
