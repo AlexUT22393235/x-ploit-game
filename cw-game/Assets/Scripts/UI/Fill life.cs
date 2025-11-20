@@ -9,20 +9,15 @@ public class Filllife : MonoBehaviour
 
     private float maxLife;
 
-    private Snowy snowyScript;
+    private Player player;
 
     void Start()
     {
-        snowy = GameObject.Find("Snowy");
+        player = FindFirstObjectByType<Player>();
 
-        if (snowy != null)
+        if (player != null)
         {
-            snowyScript = snowy.GetComponent<Snowy>();
-        }
-
-        if (snowyScript != null)
-        {
-            maxLife = snowyScript.life;
+            maxLife = player.life;
         }
         else
         {
@@ -34,9 +29,9 @@ public class Filllife : MonoBehaviour
 
     void Update()
     {
-        if (snowyScript != null && maxLife > 0)
+        if (player != null && maxLife > 0)
         {
-            fillLife.fillAmount = (float)snowyScript.life / maxLife;
+            fillLife.fillAmount = (float)player.life / maxLife;
         }
     }
 }

@@ -1,39 +1,46 @@
 using UnityEngine;
 
-public class PinguinoMelee : MonoBehaviour
+public class PinguinoMelee : Enemy
 {
-    public Transform player;
-    private float detectionRange = 3f;
-    private float speed = 3f;
     private float dashForce = 10f;
-    private float attackRange = 0.29f;
-    private int life = 50;
 
-    private bool playerDetected = false;
     private bool hasDashed = false;
     private bool onDash = false;
     private bool onWalk = false;
-    private bool onAttack = false;
 
     private bool onDamage = false;
+    private bool die = false;
 
-    private Vector2 movement;
     private Animator animator;
-    private Rigidbody2D rb;
-    private int dashDamage = 10;
-    private int meleeDamage = 5;
-    private bool damageDealt = false;
 
-    void Start()
+    private int dashDamage = 10;
+
+    private bool damageDealt = false;
+    private bool playerDetected = false;
+
+    public override void Start()
     {
+        base.Start();
+
+        life = 45;
+        attackRange = 0.29f;
+        onAttack = false;
+        damage = 15;
+
         animator = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    public override void Update()
     {
+        base.Update();
+
+        if (player == null)
+        {
+            SetAnimationStates(false, false, false, false, die);
+            return;
+        }
+
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        Vector2 direction = (player.position - transform.position).normalized;
 
         if (distanceToPlayer <= detectionRange)
         {
@@ -42,20 +49,10 @@ public class PinguinoMelee : MonoBehaviour
                 playerDetected = true;
             }
 
-            if (direction.x < 0)
-            {
-                transform.localScale = new Vector3(1, 1, 1);
-            }
-            else if (direction.x > 0)
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-            }
-
             if (distanceToPlayer <= attackRange)
             {
                 onAttack = true;
                 onWalk = false;
-                movement = Vector2.zero;
             }
             else if (playerDetected && !hasDashed)
             {
@@ -67,12 +64,10 @@ public class PinguinoMelee : MonoBehaviour
             else if (!onDash && !onAttack)
             {
                 onWalk = true;
-                movement = new Vector2(direction.x, 0);
             }
         }
         else
         {
-            movement = Vector2.zero;
             onWalk = false;
             onAttack = false;
         }
@@ -82,12 +77,9 @@ public class PinguinoMelee : MonoBehaviour
             onWalk = false;
         }
 
-        animator.SetBool("Dash", onDash);
-        animator.SetBool("Walk", onWalk);
-        animator.SetBool("Attack", onAttack);
-        animator.SetBool("Damage", onDamage);
+        SetAnimationStates(onDash, onWalk, onAttack, onDamage, die);
 
-        if (!onDash && !onAttack)
+        if (!onDash)
         {
             rb.MovePosition(rb.position + movement * speed * Time.deltaTime);
         }
@@ -98,14 +90,13 @@ public class PinguinoMelee : MonoBehaviour
         if (onDash)
         {
             Vector2 direction = (player.position - transform.position).normalized;
-            movement = new Vector2(direction.x, 0);
             rb.AddForce(new Vector2(direction.x * dashForce, 0), ForceMode2D.Impulse);
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    public override void OnCollisionEnter2D(Collision2D collision)
     {
-        Snowy playerHealth = collision.gameObject.GetComponent<Snowy>();
+        Player playerHealth = collision.gameObject.GetComponent<Player>();
 
         if (playerHealth != null)
         {
@@ -123,34 +114,39 @@ public class PinguinoMelee : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damageAmount)
+    private void SetAnimationStates(bool dash, bool walk, bool attack, bool damage, bool die)
+    {
+        animator.SetBool("Dash", dash);
+        animator.SetBool("Walk", walk);
+        animator.SetBool("Attack", attack);
+        animator.SetBool("Damage", damage);
+        animator.SetBool("Die", die);
+    }
+
+    public override void TakeDamage(int damageAmount)
     {
         onDamage = true;
-        life -= damageAmount;
-        // Debug.Log("Enemigo ha recibido " + damageAmount + " de daño. Vida restante: " + life);
+        base.TakeDamage(damageAmount);
 
         if (life <= 0)
         {
-            Die();
+            die = true;
+            animator.SetBool("Die", die);
         }
     }
 
-    private void Die()
+    public override void OnAttack()
     {
-        Debug.Log("Enemigo muerto.");
-    }
-
-    public void DealMeleeDamage()
-    {
+        base.OnAttack();
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
         if (distanceToPlayer <= attackRange)
         {
-            Snowy playerHealth = player.GetComponent<Snowy>();
+            Player playerHealth = player.GetComponent<Player>();
 
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(meleeDamage);
+                playerHealth.TakeDamage(damage);
             }
         }
     }
@@ -158,7 +154,6 @@ public class PinguinoMelee : MonoBehaviour
     public void DisableDash()
     {
         onDash = false;
-        damageDealt = false;
         if (Vector2.Distance(transform.position, player.position) > attackRange)
         {
             onWalk = true;
@@ -173,5 +168,10 @@ public class PinguinoMelee : MonoBehaviour
     public void DisableDamage()
     {
         onDamage = false;
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 }
