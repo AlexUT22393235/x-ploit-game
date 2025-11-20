@@ -1,0 +1,362 @@
+fileFormatVersion: 2
+guid: 85608f239ad5a1d4b838d77c707cd39e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8936238564217840507
+    second: Ice-spike destroy_0
+  - first:
+      213: 4038694614452754155
+    second: Ice-spike destroy_1
+  - first:
+      213: 7405417344057295009
+    second: Ice-spike destroy_2
+  - first:
+      213: 4854651456619641636
+    second: Ice-spike destroy_3
+  - first:
+      213: -6525571509060114715
+    second: Ice-spike destroy_4
+  - first:
+      213: 2105303686120435090
+    second: Ice-spike destroy_5
+  - first:
+      213: 5122983642728031724
+    second: Ice-spike destroy_6
+  - first:
+      213: -961625419326144210
+    second: Ice-spike destroy_7
+  - first:
+      213: -5587474252253334834
+    second: Ice-spike destroy_8
+  - first:
+      213: 6596901460573486
+    second: Ice-spike destroy_9
+  - first:
+      213: -6747014137882488511
+    second: Ice-spike destroy_10
+  - first:
+      213: -889983873807960388
+    second: Ice-spike destroy_11
+  - first:
+      213: 6252146170707398717
+    second: Ice-spike destroy_12
+  - first:
+      213: 1134324856201843421
+    second: Ice-spike destroy_13
+  - first:
+      213: -8305127783825341922
+    second: Ice-spike destroy_14
+  - first:
+      213: 7655573755582802445
+    second: Ice-spike destroy_15
+  - first:
+      213: -9049898357770176413
+    second: Ice-spike destroy_16
+  - first:
+      213: 8861055328495332044
+    second: Ice-spike destroy_17
+  - first:
+      213: -6679282802001470836
+    second: Ice-spike destroy_18
+  - first:
+      213: -3647812236621417861
+    second: Ice-spike destroy_19
+  - first:
+      213: -6759942894317123657
+    second: Ice-spike destroy_20
+  - first:
+      213: 8269648754388467384
+    second: Ice-spike destroy_21
+  - first:
+      213: -6194321645361567749
+    second: Ice-spike destroy_22
+  - first:
+      213: 6752800779933060979
+    second: Ice-spike destroy_23
+  - first:
+      213: -6588202628292140272
+    second: Ice-spike destroy_24
+  - first:
+      213: 1932247863350465240
+    second: Ice-spike destroy_25
+  - first:
+      213: 6019279511283592081
+    second: Ice-spike destroy_26
+  - first:
+      213: -6396982278287990825
+    second: Ice-spike destroy_27
+  - first:
+      213: 757530360189280299
+    second: Ice-spike destroy_28
+  - first:
+      213: 175431413178100991
+    second: Ice-spike destroy_29
+  - first:
+      213: 3772951345481364940
+    second: Ice-spike destroy_30
+  - first:
+      213: -3863023076446992057
+    second: Ice-spike destroy_31
+  - first:
+      213: -5778679856412873795
+    second: Ice-spike destroy_32
+  - first:
+      213: 7583003117939942157
+    second: Ice-spike destroy_33
+  - first:
+      213: -6597789860904503160
+    second: Ice-spike destroy_34
+  - first:
+      213: -1150000503056864899
+    second: Ice-spike destroy_35
+  - first:
+      213: -7753201764174258599
+    second: Ice-spike destroy_36
+  - first:
+      213: 4812122527598963799
+    second: Ice-spike destroy_37
+  - first:
+      213: -7328837171774456706
+    second: Ice-spike destroy_38
+  - first:
+      213: 4819262616824214801
+    second: Ice-spike destroy_39
+  - first:
+      213: 4952339623481254240
+    second: Ice-spike destroy_40
+  - first:
+      213: 1209700862573908075
+    second: Ice-spike destroy_41
+  - first:
+      213: -32345009236906193
+    second: Ice-spike destroy_42
+  - first:
+      213: -4930190915534402518
+    second: Ice-spike destroy_43
+  - first:
+      213: -3010727861171111705
+    second: Ice-spike destroy_44
+  - first:
+      213: -5733292523064112622
+    second: Ice-spike destroy_45
+  - first:
+      213: -63014281971094317
+    second: Ice-spike destroy_46
+  - first:
+      213: -4027754421878070736
+    second: Ice-spike destroy_47
+  - first:
+      213: 4840768012587333761
+    second: Ice-spike destroy_48
+  - first:
+      213: 6465558268096575737
+    second: Ice-spike destroy_49
+  - first:
+      213: -1522433177316261143
+    second: Ice-spike destroy_50
+  - first:
+      213: -3965680342497719292
+    second: Ice-spike destroy_51
+  - first:
+      213: 4699079070738581658
+    second: Ice-spike destroy_52
+  - first:
+      213: 9076063960541161227
+    second: Ice-spike destroy_53
+  - first:
+      213: -9134972205174814431
+    second: Ice-spike destroy_54
+  - first:
+      213: 3204016519249732650
+    second: Ice-spike destroy_55
+  - first:
+      213: 1490056110337172070
+    second: Ice-spike destroy_56
+  - first:
+      213: -2400677649915576414
+    second: Ice-spike destroy_57
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1800
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ice-spike destroy_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 468
+        height: 515
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b73e950c0a5e30c70800000000000000
+      internalID: 8936238564217840507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice-spike destroy_1
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 0
+        width: 468
+        height: 515
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be65dba9a535c0830800000000000000
+      internalID: 4038694614452754155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ice-spike destroy_2
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 0
+        width: 468
+        height: 515
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a04d0eb6d355c660800000000000000
+      internalID: 7405417344057295009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: efd1c8a56bbb27245b2cc9baaa989f76
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":1.0},"gridSpriteSize":{"x":468.0,"y":515.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Ice-spike destroy_0: 8936238564217840507
+      Ice-spike destroy_1: 4038694614452754155
+      Ice-spike destroy_2: 7405417344057295009
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

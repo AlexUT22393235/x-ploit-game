@@ -1,0 +1,478 @@
+fileFormatVersion: 2
+guid: 19d82f60c89830443a74abc894dc976f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 246866209645517428
+    second: Die (1)_0
+  - first:
+      213: 7793198633275607685
+    second: Die (1)_1
+  - first:
+      213: -6000709938123259678
+    second: Die (1)_2
+  - first:
+      213: 1852152598659633076
+    second: Die (1)_3
+  - first:
+      213: -5823508639007094239
+    second: Die (1)_4
+  - first:
+      213: -8546655879985796968
+    second: Die (1)_5
+  - first:
+      213: -3328637627346286881
+    second: Die (1)_6
+  - first:
+      213: 4810286148049902050
+    second: Die (1)_7
+  - first:
+      213: -309841063222653557
+    second: Die (1)_8
+  - first:
+      213: -8405017536808224524
+    second: Die (1)_9
+  - first:
+      213: -4932170563408525020
+    second: Die (1)_10
+  - first:
+      213: 5073032207384171513
+    second: Die (1)_11
+  - first:
+      213: -8686404424934715130
+    second: Die (1)_12
+  - first:
+      213: -2161091281002605114
+    second: Die (1)_13
+  - first:
+      213: -515888519334593055
+    second: Die (1)_14
+  - first:
+      213: 96457003991054266
+    second: Die (1)_15
+  - first:
+      213: 8639402873751567536
+    second: Die (1)_16
+  - first:
+      213: 5972639861526048996
+    second: Die (1)_17
+  - first:
+      213: 8180393704333353777
+    second: Die (1)_18
+  - first:
+      213: -6873378304886435106
+    second: Die (1)_19
+  - first:
+      213: 1933888993487446528
+    second: Die (1)_20
+  - first:
+      213: 4933699159203631258
+    second: Die (1)_21
+  - first:
+      213: 1209977666470134076
+    second: Die (1)_22
+  - first:
+      213: -5242029433591986222
+    second: Die (1)_23
+  - first:
+      213: -3092617491897361268
+    second: Die (1)_24
+  - first:
+      213: 432457867433968190
+    second: Die (1)_25
+  - first:
+      213: -817367123697261908
+    second: Die (1)_26
+  - first:
+      213: 4593804560329710507
+    second: Die (1)_27
+  - first:
+      213: 3884125345873099261
+    second: Die (1)_28
+  - first:
+      213: 5261614886002232232
+    second: Die (1)_29
+  - first:
+      213: 2634869668598247762
+    second: Die (1)_30
+  - first:
+      213: -2442590713129515933
+    second: Die (1)_31
+  - first:
+      213: -6950371501451332240
+    second: Die (1)_32
+  - first:
+      213: 8383763098130418262
+    second: Die (1)_33
+  - first:
+      213: 7560898356043525026
+    second: Die (1)_34
+  - first:
+      213: 8620598522616976617
+    second: Die (1)_35
+  - first:
+      213: 1743904769378276570
+    second: Die (1)_36
+  - first:
+      213: -5526227857277494668
+    second: Die (1)_37
+  - first:
+      213: -4798199927981080491
+    second: Die (1)_38
+  - first:
+      213: -4880066757996569384
+    second: Die (1)_39
+  - first:
+      213: 5800442323394665209
+    second: Die (1)_40
+  - first:
+      213: -5727197068181321762
+    second: Die (1)_41
+  - first:
+      213: -4912671101336238907
+    second: Die (1)_42
+  - first:
+      213: 195852667417762275
+    second: Die (1)_43
+  - first:
+      213: 6645428932055973797
+    second: Die (1)_44
+  - first:
+      213: 1987203509425828802
+    second: Die (1)_45
+  - first:
+      213: -5274951592141533235
+    second: Die (1)_46
+  - first:
+      213: -8914813109460400705
+    second: Die (1)_47
+  - first:
+      213: 7537976901468245381
+    second: Die (1)_48
+  - first:
+      213: -9026661353066351703
+    second: Die (1)_49
+  - first:
+      213: 440659638542269174
+    second: Die (1)_50
+  - first:
+      213: -323114067808029058
+    second: Die (1)_51
+  - first:
+      213: 8087913440784143914
+    second: Die (1)_52
+  - first:
+      213: -3593674027957198936
+    second: Die (1)_53
+  - first:
+      213: 4118288361698313529
+    second: Die (1)_54
+  - first:
+      213: -85572918183598661
+    second: Die (1)_55
+  - first:
+      213: -7698575052542540106
+    second: Die (1)_56
+  - first:
+      213: 3417577453850009247
+    second: Die (1)_57
+  - first:
+      213: -783599143187906465
+    second: Die (1)_58
+  - first:
+      213: 3699281935402220067
+    second: Die (1)_59
+  - first:
+      213: 2400215029908858943
+    second: Die (1)_60
+  - first:
+      213: -6861293046823004629
+    second: Die (1)_61
+  - first:
+      213: -8191564276333949782
+    second: Die (1)_62
+  - first:
+      213: 7377794223914664169
+    second: Die (1)_63
+  - first:
+      213: -630768581823982273
+    second: Die (1)_64
+  - first:
+      213: 4817404777571086782
+    second: Die (1)_65
+  - first:
+      213: -4171084509581248702
+    second: Die (1)_66
+  - first:
+      213: 8289265159461175263
+    second: Die (1)_67
+  - first:
+      213: -1213456294065529667
+    second: Die (1)_68
+  - first:
+      213: 8954265492432543652
+    second: Die (1)_69
+  - first:
+      213: -8817150122307099016
+    second: Die (1)_70
+  - first:
+      213: -7239443903438530325
+    second: Die (1)_71
+  - first:
+      213: 7164456178011367644
+    second: Die (1)_72
+  - first:
+      213: 4187288434325057484
+    second: Die (1)_73
+  - first:
+      213: 9069638860159312628
+    second: Die (1)_74
+  - first:
+      213: -1094419884167149717
+    second: Die (1)_75
+  - first:
+      213: 8415530570964312330
+    second: Die (1)_76
+  - first:
+      213: -8448171632979199160
+    second: Die (1)_77
+  - first:
+      213: 6244458220361041108
+    second: Die (1)_78
+  - first:
+      213: -6272997766699512292
+    second: Die (1)_79
+  - first:
+      213: 7028153996360538097
+    second: Die (1)_80
+  - first:
+      213: 4032151920743916586
+    second: Die (1)_81
+  - first:
+      213: -7646501965677885940
+    second: Die (1)_82
+  - first:
+      213: 8372759759943331685
+    second: Die (1)_83
+  - first:
+      213: -2704451791318069582
+    second: Die (1)_84
+  - first:
+      213: 7796518316616555077
+    second: Die (1)_85
+  - first:
+      213: -1365586644924940085
+    second: Die (1)_86
+  - first:
+      213: 2949052632919635193
+    second: Die (1)_87
+  - first:
+      213: -8912580413206594658
+    second: Die (1)_88
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 2000
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Die_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 448
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc87aebee4445a94392e53190f8a8096
+      internalID: 154866360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Die_1
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 576
+        width: 448
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d2bdcaacbb7ded429cebd240f772b5f
+      internalID: 438442051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Die_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 448
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff9e827d49609624ca90e2b73f9de576
+      internalID: -381535528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Die_3
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 448
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a82bedaadafaf742885e85dc63da78a
+      internalID: 247365660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2d0587e620a017043afb27d3043eb3c9
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":2.0},"gridSpriteSize":{"x":448.0,"y":576.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Die_0: 154866360
+      Die_1: 438442051
+      Die_2: -381535528
+      Die_3: 247365660
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
