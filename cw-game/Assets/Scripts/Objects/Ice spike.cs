@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class fireballPrefab : MonoBehaviour
+public class IceSpikePrefab : MonoBehaviour
 {
     private int damageAmount = 10;
 
@@ -27,25 +27,24 @@ public class fireballPrefab : MonoBehaviour
             return;
         }
 
-        if (!collision.gameObject.CompareTag("ObjectBackground") && !collision.gameObject.CompareTag("Player"))
+        if (!collision.gameObject.CompareTag("ObjectBackground") && !collision.gameObject.CompareTag("Enemy"))
         {
 
             onDestroy = true;
             hasCollided = true;
 
-            if (collision.gameObject.CompareTag("Enemy"))
+            if (collision.gameObject.CompareTag("Player"))
             {
-                // Debug.Log("Fireball hit an enemy!");
-                Enemy enemyHealth = collision.gameObject.GetComponent<Enemy>();
+                Debug.Log("Ice spike hit an enemy!");
+                Player playerHealth = collision.gameObject.GetComponent<Player>();
 
-                if (enemyHealth != null)
+                if (playerHealth != null)
                 {
-                    enemyHealth.TakeDamage(damageAmount);
+                    playerHealth.TakeDamage(damageAmount);
                 }
             }
 
-            // Debug.Log("Fireball collided with " + collision.gameObject.name);
-            Destroy(gameObject, 0.3f);
+            Debug.Log("Ice spike collided with " + collision.gameObject.name);
         }
     }
 

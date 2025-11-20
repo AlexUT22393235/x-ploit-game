@@ -1,0 +1,283 @@
+fileFormatVersion: 2
+guid: a359cf741caa8804a8ed41fc9835669b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7542793856610299110
+    second: Pinguino-distancia damage_0
+  - first:
+      213: -3155822976172019011
+    second: Pinguino-distancia damage_1
+  - first:
+      213: 8238159534186130615
+    second: Pinguino-distancia damage_2
+  - first:
+      213: 145973012394218704
+    second: Pinguino-distancia damage_3
+  - first:
+      213: 4907874089175110925
+    second: Pinguino-distancia damage_4
+  - first:
+      213: 2943683512342125485
+    second: Pinguino-distancia damage_5
+  - first:
+      213: -422075084586259442
+    second: Pinguino-distancia damage_6
+  - first:
+      213: -1774621590535853020
+    second: Pinguino-distancia damage_7
+  - first:
+      213: -2965441266167588503
+    second: Pinguino-distancia damage_8
+  - first:
+      213: 3839865968030601608
+    second: Pinguino-distancia damage_9
+  - first:
+      213: -2118239630609321381
+    second: Pinguino-distancia damage_10
+  - first:
+      213: -5216135055035107355
+    second: Pinguino-distancia damage_11
+  - first:
+      213: 1779627183177301511
+    second: Pinguino-distancia damage_12
+  - first:
+      213: -414883475732300010
+    second: Pinguino-distancia damage_13
+  - first:
+      213: -8458533543167127343
+    second: Pinguino-distancia damage_14
+  - first:
+      213: -6879094263489411360
+    second: Pinguino-distancia damage_15
+  - first:
+      213: -6805470187993760671
+    second: Pinguino-distancia damage_16
+  - first:
+      213: 3630716686802359806
+    second: Pinguino-distancia damage_17
+  - first:
+      213: -7908634789716394948
+    second: Pinguino-distancia damage_18
+  - first:
+      213: 7877924955434738679
+    second: Pinguino-distancia damage_19
+  - first:
+      213: 7510268427231762465
+    second: Pinguino-distancia damage_20
+  - first:
+      213: -6559122604348501351
+    second: Pinguino-distancia damage_21
+  - first:
+      213: -8819999649521114782
+    second: Pinguino-distancia damage_22
+  - first:
+      213: 8212523252646840359
+    second: Pinguino-distancia damage_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1750
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pinguino-distancia damage_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 720
+        width: 485
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ec61459c036da860800000000000000
+      internalID: 7542793856610299110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinguino-distancia damage_1
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 720
+        width: 485
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db2304339b34434d0800000000000000
+      internalID: -3155822976172019011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinguino-distancia damage_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 485
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bc692ed272d35270800000000000000
+      internalID: 8238159534186130615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinguino-distancia damage_3
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 0
+        width: 485
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d41d8e6ea9960200800000000000000
+      internalID: 145973012394218704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 6f1e3697859e57542ab5a13fb8fd4d92
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":2.0},"gridSpriteSize":{"x":485.0,"y":720.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Pinguino-distancia damage_0: 7542793856610299110
+      Pinguino-distancia damage_1: -3155822976172019011
+      Pinguino-distancia damage_2: 8238159534186130615
+      Pinguino-distancia damage_3: 145973012394218704
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

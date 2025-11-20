@@ -1,0 +1,271 @@
+fileFormatVersion: 2
+guid: e6bffad8f75b4104988100b101d26729
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3137817545621310357
+    second: Pinguino-distancia die (1)_0
+  - first:
+      213: -3122538859590061945
+    second: Pinguino-distancia die (1)_1
+  - first:
+      213: -1087167438940514752
+    second: Pinguino-distancia die (1)_2
+  - first:
+      213: -8332281181179942648
+    second: Pinguino-distancia die (1)_3
+  - first:
+      213: 5436585248949758632
+    second: Pinguino-distancia die (1)_4
+  - first:
+      213: 4550459306772310524
+    second: Pinguino-distancia die (1)_5
+  - first:
+      213: 8166965201191734609
+    second: Pinguino-distancia die (1)_6
+  - first:
+      213: -2851120356305511066
+    second: Pinguino-distancia die (1)_7
+  - first:
+      213: 1767562944933659817
+    second: Pinguino-distancia die (1)_8
+  - first:
+      213: 217339037289489224
+    second: Pinguino-distancia die (1)_9
+  - first:
+      213: 5326269861650383686
+    second: Pinguino-distancia die (1)_10
+  - first:
+      213: -467148755733180433
+    second: Pinguino-distancia die (1)_11
+  - first:
+      213: -7896712633108947685
+    second: Pinguino-distancia die (1)_12
+  - first:
+      213: 3695763332987123396
+    second: Pinguino-distancia die (1)_13
+  - first:
+      213: -302815091139703072
+    second: Pinguino-distancia die (1)_14
+  - first:
+      213: -3948152225375701978
+    second: Pinguino-distancia die (1)_15
+  - first:
+      213: 5491314502600235112
+    second: Pinguino-distancia die (1)_16
+  - first:
+      213: -8848284670972612476
+    second: Pinguino-distancia die (1)_17
+  - first:
+      213: -4909853130045949122
+    second: Pinguino-distancia die (1)_18
+  - first:
+      213: 8266872833022368179
+    second: Pinguino-distancia die (1)_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1700
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pinguino-distancia die (1)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 654
+        height: 600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b64f04f219b3474d0800000000000000
+      internalID: -3137817545621310357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinguino-distancia die (1)_1
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 600
+        width: 654
+        height: 600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 780f7cc73738aa4d0800000000000000
+      internalID: -3122538859590061945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinguino-distancia die (1)_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 654
+        height: 600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 046549e69fa99e0f0800000000000000
+      internalID: -1087167438940514752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinguino-distancia die (1)_3
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 0
+        width: 654
+        height: 600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 809e81b796acd5c80800000000000000
+      internalID: -8332281181179942648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1bc0f44c3eda07c4b92932b4b455bfaa
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":2.0},"gridSpriteSize":{"x":654.0,"y":600.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Pinguino-distancia die (1)_0: -3137817545621310357
+      Pinguino-distancia die (1)_1: -3122538859590061945
+      Pinguino-distancia die (1)_2: -1087167438940514752
+      Pinguino-distancia die (1)_3: -8332281181179942648
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
