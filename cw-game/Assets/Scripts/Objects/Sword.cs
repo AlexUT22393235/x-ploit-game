@@ -1,0 +1,23 @@
+using UnityEngine;
+
+public class Sword : MonoBehaviour
+{
+    private int damageAmount = 15;
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        // Debug.Log("Sword collided with (Trigger): " + other.gameObject.name);
+
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            // Debug.Log("Sword hit an enemy!");
+
+            Enemy enemyHealth = other.gameObject.GetComponent<Enemy>();
+
+            if (enemyHealth != null)
+            {
+                enemyHealth.TakeDamage(damageAmount);
+            }
+        }
+    }
+}

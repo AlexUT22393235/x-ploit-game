@@ -1241,9 +1241,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1098905074897595495, guid: e0f65ce4667c9d042858e2e653a8674d, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1111310799772072658, guid: e0f65ce4667c9d042858e2e653a8674d, type: 3}
       propertyPath: m_Name
       value: Seccion_Nieve_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111310799772072658, guid: e0f65ce4667c9d042858e2e653a8674d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111310799772072658, guid: e0f65ce4667c9d042858e2e653a8674d, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6984562726932295840, guid: e0f65ce4667c9d042858e2e653a8674d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1284,6 +1296,14 @@ PrefabInstance:
     - target: {fileID: 6984562726932295840, guid: e0f65ce4667c9d042858e2e653a8674d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695018043271290127, guid: e0f65ce4667c9d042858e2e653a8674d, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117301761885461104, guid: e0f65ce4667c9d042858e2e653a8674d, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

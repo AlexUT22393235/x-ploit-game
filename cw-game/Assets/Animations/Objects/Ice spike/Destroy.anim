@@ -22,11 +22,11 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 8936238564217840507, guid: 85608f239ad5a1d4b838d77c707cd39e, type: 3}
-    - time: 0.25
+    - time: 0.05
       value: {fileID: 4038694614452754155, guid: 85608f239ad5a1d4b838d77c707cd39e, type: 3}
-    - time: 0.33333334
+    - time: 0.06666667
       value: {fileID: 7405417344057295009, guid: 85608f239ad5a1d4b838d77c707cd39e, type: 3}
-    - time: 0.41666666
+    - time: 0.083333336
       value: {fileID: 7405417344057295009, guid: 85608f239ad5a1d4b838d77c707cd39e, type: 3}
     attribute: m_Sprite
     path: 
@@ -59,7 +59,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.43333334
+    m_StopTime: 0.1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -79,8 +79,8 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.41666666
-    functionName: OnBecameInvisible
+  - time: 0.083333336
+    functionName: DestroyProjectile
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

@@ -2,10 +2,6 @@ using UnityEngine;
 
 public class PinguinoDistance : Enemy
 {
-    private bool onDamage = false;
-    private bool die = false;
-
-    private Animator animator;
     public GameObject iceSpikePrefab;
 
     private float velocityIceSpike = 3f;
@@ -16,26 +12,31 @@ public class PinguinoDistance : Enemy
 
         life = 30;
         attackRange = 3f;
-        onAttack = false;
-
-        animator = GetComponent<Animator>();
     }
 
     public override void Update()
     {
-        base.Update();
-
         if (player == null)
         {
-            SetAnimationStates(false, false, die);
             return;
         }
-
-        movement = Vector2.zero;
-
+        
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        Vector2 direction = (player.position - transform.position).normalized;
 
-        if (distanceToPlayer <= attackRange)
+        if (direction.x < 0)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+                lastDirection = -1;
+            }
+            
+            else if (direction.x > 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+                lastDirection = 1;
+            }
+
+        if (distanceToPlayer <= attackRange && Time.time >= nextAttackTime)
         {
             onAttack = true;
         }
@@ -44,32 +45,20 @@ public class PinguinoDistance : Enemy
             onAttack = false;
         }
 
-        SetAnimationStates(onAttack, onDamage, die);
+        SetAnimationStates(onWalk, onAttack, onDamage);
     }
 
-    private void SetAnimationStates(bool attack, bool damage, bool die)
+    public override void SetAnimationStates(bool walk, bool attack, bool damage)
     {
         animator.SetBool("Attack", attack);
         animator.SetBool("Damage", damage);
-    }
-
-    public override void TakeDamage(int damageAmount)
-    {
-        onDamage = true;
-        base.TakeDamage(damageAmount);
-
-        if (life <= 0)
-        {
-            die = true;
-            animator.SetBool("Die", die);
-        }
     }
 
     public override void OnAttack()
     {
         base.OnAttack();
 
-        Vector3 spawnOffset = new Vector3(.1f * lastDirection, 0.1f, 0f);
+        Vector3 spawnOffset = new Vector3(.12f * lastDirection, 0.1f, 0f);
         GameObject nuevoProyectil = Instantiate(iceSpikePrefab, transform.position + spawnOffset, transform.rotation);
         Rigidbody2D rb = nuevoProyectil.GetComponent<Rigidbody2D>();
 
@@ -77,20 +66,5 @@ public class PinguinoDistance : Enemy
         {
             rb.linearVelocity = new Vector2(lastDirection < 0 ? -velocityIceSpike : velocityIceSpike, 0f);
         }
-    }
-
-    public void DisableAttack()
-    {
-        onAttack = false;
-    }
-
-    public void DisableDamage()
-    {
-        onDamage = false;
-    }
-
-    private void Die()
-    {
-        Destroy(gameObject);
     }
 }

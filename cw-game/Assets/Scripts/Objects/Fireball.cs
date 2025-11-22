@@ -1,31 +1,20 @@
 using UnityEngine;
 
-public class fireballPrefab : MonoBehaviour
+public class fireballPrefab : Projectiles
 {
-    private int damageAmount = 10;
+    // public override void Start()
+    // {
+    //     base.Start();
+    // }
 
-    private Animator animator;
+    // public override void Update()
+    // {
+    //     base.Update();
+    // }
 
-    private bool onDestroy = false;
-
-    private bool hasCollided = false;
-
-    private void Start()
+    public override void OnCollisionEnter2D(Collision2D collision)
     {
-        animator = GetComponent<Animator>();
-    }
-
-    private void Update()
-    {
-        animator.SetBool("Destroy", onDestroy);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (hasCollided)
-        {
-            return;
-        }
+        base.OnCollisionEnter2D(collision);
 
         if (!collision.gameObject.CompareTag("ObjectBackground") && !collision.gameObject.CompareTag("Player"))
         {
@@ -35,7 +24,6 @@ public class fireballPrefab : MonoBehaviour
 
             if (collision.gameObject.CompareTag("Enemy"))
             {
-                // Debug.Log("Fireball hit an enemy!");
                 Enemy enemyHealth = collision.gameObject.GetComponent<Enemy>();
 
                 if (enemyHealth != null)
@@ -43,14 +31,6 @@ public class fireballPrefab : MonoBehaviour
                     enemyHealth.TakeDamage(damageAmount);
                 }
             }
-
-            // Debug.Log("Fireball collided with " + collision.gameObject.name);
-            Destroy(gameObject, 0.3f);
         }
-    }
-
-    private void OnBecameInvisible()
-    {
-        Destroy(gameObject);
     }
 }

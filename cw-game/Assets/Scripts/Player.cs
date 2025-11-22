@@ -10,17 +10,30 @@ public class Player : MonoBehaviour
     protected int lastDirection = 1;
 
     protected bool isGrounded = false;
+    protected bool jumping = false;
+    protected bool onDash = false;
+    protected bool attacking = false;
+    protected bool onDamage = false;
+    protected bool die = false;
 
     protected Vector2 direction;
     protected Rigidbody2D rb;
+    protected Animator animator;
 
     public virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     public virtual void Update()
     {
+        if (die)
+        {
+            SetAnimationStates(direction.magnitude, false, false, false, false);
+            return;
+        }
+        
         transform.Translate(direction * speed * Time.deltaTime);
 
         if (direction.x < 0)
@@ -33,22 +46,41 @@ public class Player : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
             lastDirection = 1;
         }
+
+        SetAnimationStates(direction.magnitude, jumping, attacking, onDash, onDamage);
     }
 
     public virtual void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Collision detected with " + collision.collider.name);
+
+        if (collision.collider.CompareTag("Floor") || collision.collider.CompareTag("Enemy"))
+        {
+            isGrounded = true;
+            jumping = false;
+        }
     }
 
-    public virtual void OnMove(InputAction.CallbackContext context)
+    public virtual void SetAnimationStates(float speed, bool jump, bool attack, bool dash, bool damage)
     {
+        animator.SetFloat("Speed", speed);
+        animator.SetBool("Jump", jump);
+        animator.SetBool("Attack", attack);
+        animator.SetBool("Dash", dash);
+        animator.SetBool("Damage", damage);
+    }
+
+    protected virtual void OnMove(InputAction.CallbackContext context)
+    {
+        // Debug.Log("Dirección de movimiento: " + direction);
         direction = context.ReadValue<Vector2>();
-        Debug.Log("Dirección de movimiento: " + direction);
     }
 
-    public virtual void OnJump(InputAction.CallbackContext context)
+    protected virtual void OnJump(InputAction.CallbackContext context)
     {
-        Debug.Log("Detectado salto");
+        if (die) return;
+        // Debug.Log("Detectado salto");
+
         if (context.performed)
         {
             Debug.Log("Haciendo salto");
@@ -65,28 +97,85 @@ public class Player : MonoBehaviour
 
                 jumps++;
                 isGrounded = false;
+
+                if (jumps >= 1 && jumps <= 2)
+                {
+                    switch (jumps)
+                    {
+                        case 1:
+                            jumping = true;
+                            onDash = false;
+                            break;
+                        case 2:
+                            jumping = false;
+                            onDash = true;
+                            break;
+                    }
+                }
             }
         }
     }
 
-    public virtual void OnDash(InputAction.CallbackContext context)
+    protected virtual void OnDash(InputAction.CallbackContext context)
     {
-        Debug.Log("Detectado dash");
+        if(die) return;
+        // Debug.Log("Detectado dash");
+
         if (context.performed && isGrounded)
         {
             Debug.Log("Haciendo dash");
+            onDash = true;
             rb.AddForce(direction.normalized * force, ForceMode2D.Impulse);
         }
     }
 
-    public virtual void OnAttack(InputAction.CallbackContext context)
+    protected virtual void OnAttack(InputAction.CallbackContext context)
     {
-        Debug.Log("Detectado ataque");
+        if(die) return;
+        // Debug.Log("Detectado ataque");
+
+        if (context.performed && !attacking && isGrounded)
+        {
+            attacking = true;
+        }
     }
 
     public virtual void TakeDamage(int damageAmount)
     {
         life -= damageAmount;
-        Debug.Log(gameObject.name + " ha recibido " + damageAmount + " de daño. Vida restante: " + life);
+        // Debug.Log(gameObject.name + " ha recibido " + damageAmount + " de daño. Vida restante: " + life);
+
+        onDamage = true;
+
+        if (life <= 0)
+        {
+            die = true;
+            animator.SetBool("Die", die);
+        }
+    }
+
+    protected void DisableJump()
+    {
+        jumping = false;
+    }
+
+    protected void DisableDash()
+    {
+        onDash = false;
+    }
+
+    protected void DisableAttack()
+    {
+        attacking = false;
+    }
+
+    protected void DisableDamage()
+    {
+        onDamage = false;
+    }
+
+    protected void Die()
+    {
+        Destroy(gameObject);
     }
 }
