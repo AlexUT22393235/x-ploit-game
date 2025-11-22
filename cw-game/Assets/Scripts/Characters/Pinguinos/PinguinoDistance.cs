@@ -12,6 +12,7 @@ public class PinguinoDistance : Enemy
 
         life = 30;
         attackRange = 3f;
+        pointsOnDefeat = 25;
     }
 
     public override void Update()

@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     protected float damageCooldown = .5f;
     protected float lastDamageTime = 0f;
     protected float attackDelay = 1.5f;
+    protected int pointsOnDefeat = 50;
 
     protected float nextAttackTime;
     protected int life;
@@ -174,5 +175,9 @@ public class Enemy : MonoBehaviour
     protected void Die()
     {
         Destroy(gameObject);
+        if (Score.Instance != null)
+        {
+            Score.Instance.AddPoints(pointsOnDefeat);
+        }
     }
 }

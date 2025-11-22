@@ -18,6 +18,7 @@ public class PinguinoMelee : Enemy
         attackRange = 0.29f;
         damage = 15;
         attackDelay = .6f;
+        pointsOnDefeat = 50;
     }
 
     public override void Update()
