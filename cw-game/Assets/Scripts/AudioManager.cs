@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement; // Necesario para detectar cambios de escena
 
 public class AudioManager : MonoBehaviour
 {
-    // Instancia estática para poder acceder a ella desde cualquier otro script
+    // Instancia estï¿½tica para poder acceder a ella desde cualquier otro script
     // Ejemplo: AudioManager.instance.PlaySFX(...);
     public static AudioManager instance;
 
@@ -68,15 +68,15 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        // --- PATRÓN SINGLETON ---
+        // --- PATRï¿½N SINGLETON ---
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject); // ¡Esto hace la magia! El objeto no se destruye.
+            DontDestroyOnLoad(gameObject); // ï¿½Esto hace la magia! El objeto no se destruye.
         }
         else
         {
-            // Si ya existe un AudioManager (ej. volviste al menú y cargaste uno nuevo),
+            // Si ya existe un AudioManager (ej. volviste al menï¿½ y cargaste uno nuevo),
             // destruye este duplicado para quedarte solo con el original.
             Destroy(gameObject);
             return;
@@ -85,7 +85,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        // Iniciar música de la primera escena
+        // Iniciar mï¿½sica de la primera escena
         PlayMusic(backgroundGame1);
     }
 
@@ -100,36 +100,36 @@ public class AudioManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    // Esta función se ejecuta automáticamente cada vez que carga una escena
+    // Esta funciï¿½n se ejecuta automï¿½ticamente cada vez que carga una escena
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         CheckSceneMusic(scene.name);
     }
 
-    // Lógica para decidir qué música tocar según el nombre de la escena
+    // Lï¿½gica para decidir quï¿½ mï¿½sica tocar segï¿½n el nombre de la escena
     void CheckSceneMusic(string sceneName)
     {
-        // Ejemplo de lógica (ajusta los nombres de tus escenas)
+        // Ejemplo de lï¿½gica (ajusta los nombres de tus escenas)
         switch (sceneName)
         {
             case "MainMenu":
                 PlayMusic(backgroundGame1);
                 break;
-            case "Scene Max":
+            case "Tower":
                 PlayMusic(backgroundGame2);
                 break;
             case "Nivel3":
                 PlayMusic(backgroundGame3);
                 break;
             default:
-                // Si no hay música específica, no hacemos nada o paramos la música
+                // Si no hay mï¿½sica especï¿½fica, no hacemos nada o paramos la mï¿½sica
                 break;
         }
     }
 
     public void PlayMusic(AudioClip clip)
     {
-        // Solo cambiamos la música si el clip es diferente al que ya está sonando
+        // Solo cambiamos la mï¿½sica si el clip es diferente al que ya estï¿½ sonando
         if (musicSource.clip != clip)
         {
             musicSource.clip = clip;
@@ -137,7 +137,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // Método helper para reproducir efectos desde otros scripts
+    // Mï¿½todo helper para reproducir efectos desde otros scripts
     public void PlaySFX(AudioClip clip)
     {
         SFXSource.PlayOneShot(clip);
