@@ -7,12 +7,13 @@ public class PlayerController : MonoBehaviour
     private float moveInput;
 
     [Header("Movement")]
-    public float moveSpeed = 6f; // Ajustado a tu gusto anterior
+    public float moveSpeed = 8f; // Ajustado a tu gusto anterior
     public float jumpForce = 14f;
 
     [Header("Double Jump")] // --- NUEVA SECCIÓN ---
     public bool canDoubleJump; // Para ver en inspector si está activo
-    private bool doubleJumpAvailable; 
+    public int maxJumps = 2; // Máximo de saltos antes de tocar suelo
+    private int jumpCount = 0; // Contador de saltos realizados desde el suelo
 
     [Header("Ground Check")]
     public Transform groundCheck;
@@ -35,6 +36,15 @@ public class PlayerController : MonoBehaviour
     public Vector2 wallJumpForce = new Vector2(10f, 18f);
     private bool isWallJumping;
 
+    [Header("Movimiento e Hielo")]
+    
+    // NUEVAS VARIABLES PARA FISICA DE HIELO
+    public float acceleration = 50f;    // Qué tan rápido arranca en suelo normal
+    public float deacceleration = 50f;  // Qué tan rápido frena en suelo normal (alto = frenado seco)
+    public float iceFriction = 0.5f;    // Qué tan rápido frena en hielo (Bajo = muy resbaloso)
+    
+    private bool onIce; // Para saber si estamos patinando
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -54,7 +64,7 @@ public class PlayerController : MonoBehaviour
         // --- Lógica de Reset (Suelo) ---
         if (isGrounded)
         {
-            doubleJumpAvailable = true; // Recargar doble salto
+            jumpCount = 0; // Resetear contador de saltos al tocar suelo
             wallTimer = maxWallTime;    // Recargar energía de pared
         }
 
@@ -94,27 +104,31 @@ public class PlayerController : MonoBehaviour
             {
                 WallJump();
             }
-            else if (doubleJumpAvailable) // --- Lógica Doble Salto ---
+            else if (jumpCount < maxJumps)
             {
                 Jump();
-                doubleJumpAvailable = false; // Gastar el doble salto
             }
         }
         
         // Visualización para el inspector
-        canDoubleJump = doubleJumpAvailable;
+        // mostrar si todavía puede ejecutar saltos adicionales en el aire
+        canDoubleJump = (!isGrounded && jumpCount < maxJumps);
     }
 
     void Jump()
     {
         // Reseteamos velocidad Y para que el doble salto sea consistente aunque estés cayendo
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        // Contar este salto (siempre que no estemos en el suelo)
+        if (!isGrounded)
+            jumpCount++;
     }
 
     void WallJump()
     {
         isWallJumping = true;
-        doubleJumpAvailable = true; // OPCIONAL: ¿Saltar en pared te devuelve el doble salto? (Estilo Celeste/HK)
+        // Tras un wall jump consideramos que ya hemos usado 1 salto
+        jumpCount = 1;
         
         float jumpDirection = -transform.localScale.x;
         rb.linearVelocity = new Vector2(wallJumpForce.x * jumpDirection, wallJumpForce.y);
@@ -130,26 +144,57 @@ public class PlayerController : MonoBehaviour
 
 void FixedUpdate()
     {
-        if (!isWallJumping)
-        {
-            rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
 
-            if (moveInput > 0)
-                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-            else if (moveInput < 0)
-                transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);      
+        // 1. DETECTAR HIELO
+        Collider2D groundCollider = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        if (groundCollider != null && groundCollider.CompareTag("Ice"))
+        {
+            onIce = true;
+        }
+        else
+        {
+            onIce = false;
         }
 
+        // 2. MOVIMIENTO CON INERCIA
+        if (!isWallJumping)
+        {
+            // Calculamos la velocidad objetivo (A donde queremos ir)
+            float targetSpeed = moveInput * moveSpeed;
+            
+            // Calculamos la diferencia entre la velocidad actual y la deseada
+            float speedDif = targetSpeed - rb.linearVelocity.x;
 
+            // Decidimos qué tasa de cambio usar (Aceleración o Frenado)
+            float accelRate;
+
+            if (onIce)
+            {
+                // Si estamos en hielo...
+                if (Mathf.Abs(moveInput) > 0.01f) 
+                    accelRate = acceleration; // Si oprimes teclas, tienes control
+                else 
+                    accelRate = iceFriction;  // SI NO OPRIMES NADA: Frena muy lento (Resbala)
+            }
+            else
+            {
+                // Suelo normal
+                if (Mathf.Abs(moveInput) > 0.01f)
+                    accelRate = acceleration;
+                else
+                    accelRate = deacceleration; // Frenado seco habitual
+            }
+
+            // Aplicamos la fuerza basada en la diferencia
+            float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, 0.9f) * Mathf.Sign(speedDif);
+            rb.AddForce(movement * Vector2.right);
+        }
+
+        // --- LIMITAR VELOCIDAD MÁXIMA DE CAÍDA/SUBIDA (Tu código existente) ---
         if (rb.linearVelocity.y > 20f)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, 20f);
         }
-    } 
-
-    private void StopWallJump()
-    {
-        isWallJumping = false;
     }
 
 }
