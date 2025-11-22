@@ -4,7 +4,7 @@ public class Enemy : MonoBehaviour
 {
     public EdgeSensor edgeSensor;
     protected Player playerComponent;
-    protected Transform player;
+    protected Transform playerTransform;
     protected Rigidbody2D rb;
     protected Vector2 movement;
     protected Animator animator;
@@ -37,15 +37,16 @@ public class Enemy : MonoBehaviour
 
     public virtual void Update()
     {
-        if (player == null)
+        if (playerComponent == null)
         {
+            SetAnimationStates(false, false, false);
             return;
         }
 
         bool platformAhead = edgeSensor.IsPlatformAhead;
 
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        Vector2 direction = (player.position - transform.position).normalized;
+        float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
+        Vector2 direction = (playerTransform.position - transform.position).normalized;
 
         if (distanceToPlayer <= detectionRange)
         {
@@ -93,7 +94,8 @@ public class Enemy : MonoBehaviour
     {
         if (onWalk)
         {
-            rb.MovePosition(rb.position + movement * speed * Time.deltaTime);
+            rb.linearVelocity = new Vector2(movement.x * speed, rb.linearVelocity.y);
+            // rb.MovePosition(rb.position + movement * speed * Time.deltaTime);
         }
     }
 
@@ -131,7 +133,7 @@ public class Enemy : MonoBehaviour
 
         if (playerComponent != null)
         {
-            player = playerComponent.transform;
+            playerTransform = playerComponent.transform;
         }
         else
         {

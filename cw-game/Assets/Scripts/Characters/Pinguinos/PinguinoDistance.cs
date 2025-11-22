@@ -16,13 +16,14 @@ public class PinguinoDistance : Enemy
 
     public override void Update()
     {
-        if (player == null)
+        if (playerComponent == null)
         {
+            SetAnimationStates(false, false, false);
             return;
         }
         
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        Vector2 direction = (player.position - transform.position).normalized;
+        float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
+        Vector2 direction = (playerTransform.position - transform.position).normalized;
 
         if (direction.x < 0)
             {

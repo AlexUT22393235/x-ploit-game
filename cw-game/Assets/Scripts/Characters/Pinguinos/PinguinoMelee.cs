@@ -22,14 +22,17 @@ public class PinguinoMelee : Enemy
 
     public override void Update()
     {
-        if (player == null)
+        if (playerComponent == null)
         {
+            SetAnimationStates(false, false, false, false);
             return;
         }
-        
+
         base.Update();
 
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        bool platformAhead = edgeSensor.IsPlatformAhead;
+
+        float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
 
         if (distanceToPlayer <= detectionRange)
         {
@@ -51,6 +54,12 @@ public class PinguinoMelee : Enemy
             {
                 onWalk = true;
             }
+
+            if (!platformAhead)
+            {
+                onWalk = false;
+                movement = Vector2.zero;
+            }
         }
 
         SetAnimationStates(onDash, onWalk, onAttack, onDamage);
@@ -60,7 +69,7 @@ public class PinguinoMelee : Enemy
     {
         if (onDash)
         {
-            Vector2 direction = (player.position - transform.position).normalized;
+            Vector2 direction = (playerTransform.position - transform.position).normalized;
             rb.AddForce(new Vector2(direction.x * dashForce, 0), ForceMode2D.Impulse);
         }
 
@@ -72,21 +81,16 @@ public class PinguinoMelee : Enemy
 
     public override void OnCollisionEnter2D(Collision2D collision)
     {
-        Player playerHealth = collision.gameObject.GetComponent<Player>();
-
-        if (playerHealth != null)
+        if (onDash && !damageDealt)
         {
-            if (onDash && !damageDealt)
-            {
-                // float collisionSpeed = collision.relativeVelocity.magnitude;
-                // // Daño = (Velocidad * Masa del Enemigo) / Constante de Ajuste
-                // int calculatedDamage = Mathf.RoundToInt(collisionSpeed * rb.mass * 0.5f);
+            // float collisionSpeed = collision.relativeVelocity.magnitude;
+            // // Daño = (Velocidad * Masa del Enemigo) / Constante de Ajuste
+            // int calculatedDamage = Mathf.RoundToInt(collisionSpeed * rb.mass * 0.5f);
 
-                // playerHealth.TakeDamage(calculatedDamage);
-                playerHealth.TakeDamage(dashDamage);
+            // playerHealth.TakeDamage(calculatedDamage);
+            playerComponent.TakeDamage(dashDamage);
 
-                damageDealt = true;
-            }
+            damageDealt = true;
         }
     }
 
@@ -101,23 +105,18 @@ public class PinguinoMelee : Enemy
     public override void OnAttack()
     {
         base.OnAttack();
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
 
         if (distanceToPlayer <= attackRange)
         {
-            Player playerHealth = player.GetComponent<Player>();
-
-            if (playerHealth != null)
-            {
-                playerHealth.TakeDamage(damage);
-            }
+            playerComponent.TakeDamage(damage);
         }
     }
 
     protected void DisableDash()
     {
         onDash = false;
-        if (Vector2.Distance(transform.position, player.position) > attackRange)
+        if (Vector2.Distance(transform.position, playerTransform.position) > attackRange)
         {
             onWalk = true;
         }
