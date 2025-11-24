@@ -4118,30 +4118,21 @@ MonoBehaviour:
   backgroundGameOver: {fileID: 8300000, guid: 579d9ee3dca8d7546a5f7d9767b55024, type: 3}
   backgroundWin: {fileID: 8300000, guid: 59ca08e4e8157e5489cbe0b58736e4c3, type: 3}
   danoioProta: {fileID: 8300000, guid: df1cbde220ed1e8429e77f4252d7d250, type: 3}
-  dashProta: {fileID: 8300000, guid: 57b9e097ce3d73e4fbcca36a5d8ec4b5, type: 3}
-  dashProtaAir: {fileID: 8300000, guid: bf32e24e5f53aa2408441f4f2309bdb6, type: 3}
-  deadProta: {fileID: 8300000, guid: 519a7da3204abfc4298d2c2d85100f55, type: 3}
-  warriorAtack1: {fileID: 8300000, guid: 71d1d2993eba13a49af385ec51305d78, type: 3}
-  warriorAtack2: {fileID: 8300000, guid: 618a6b33d3072b8499a7f952727ad90f, type: 3}
-  warriorAtack3: {fileID: 8300000, guid: 3fb7d836f1d73e34f8a58e91d07849c7, type: 3}
-  wizzardIgnis: {fileID: 8300000, guid: db21985e826659b4d8db8dc89c8c0e01, type: 3}
+  dashProta: {fileID: 0}
+  dashProtaAir: {fileID: 0}
+  deadProta: {fileID: 0}
+  warriorAtack1: {fileID: 0}
+  warriorAtack2: {fileID: 0}
+  warriorAtack3: {fileID: 0}
+  wizzardIgnis: {fileID: 0}
   wizzardFireballSound: {fileID: 0}
-  surfaceIceSlice1: {fileID: 8300000, guid: a5e564b3c97ef64408a7821a1bf1373e, type: 3}
-  surfaceIceSlice2: {fileID: 8300000, guid: 82c0cdffb74c4174d838a3aea968b63a, type: 3}
-  surfaceWalkSnow1: {fileID: 8300000, guid: d1ecd76a0e6566a438103fade69aface, type: 3}
-  surfaceWalkSnow2: {fileID: 8300000, guid: d4a83e7a210b9484893718b1f1868253, type: 3}
-  surfaceWalkStone1: {fileID: 8300000, guid: b75116543d00efb4e9fbbc47a43a5035, type: 3}
-  surfaceWalkStone2: {fileID: 8300000, guid: 9cc15aa4f3bba674abf5ebfe40acaa11, type: 3}
-  surfaceColapsedPlatform: {fileID: 8300000, guid: 928c4f14376255a4db0cf73590585b43, type: 3}
-  danioDista: {fileID: 8300000, guid: ccc1a6a2c4fca384f859c369482c3bab, type: 3}
-  distaAtack: {fileID: 8300000, guid: 7f36fb529f8cc974e88339e62b3749ed, type: 3}
-  distanceExisting: {fileID: 8300000, guid: 48084bd42ce6f3240a2b962c52aed6aa, type: 3}
-  danioMelee: {fileID: 8300000, guid: a95bb391650d6e84e9c60174ff6f51b4, type: 3}
-  meleeAtack: {fileID: 8300000, guid: 7b25df4b83c5db441997d4361cfed6a3, type: 3}
-  meleeAtack2: {fileID: 8300000, guid: 1cd57e24c0a47254a8ea2d20edc974e2, type: 3}
-  meleeDash: {fileID: 8300000, guid: 12a1030440ab73d43a4e7f9451a13972, type: 3}
-  meleeExisting: {fileID: 8300000, guid: ad0c313d145d96346b623e9d068cd29c, type: 3}
-  muerteMelee: {fileID: 8300000, guid: bbfc47748d9f57142b723e861246cef5, type: 3}
+  surfaceIceSlice1: {fileID: 0}
+  surfaceIceSlice2: {fileID: 0}
+  surfaceWalkSnow1: {fileID: 0}
+  surfaceWalkSnow2: {fileID: 0}
+  surfaceWalkStone1: {fileID: 0}
+  surfaceWalkStone2: {fileID: 0}
+  surfaceColapsedPlatform: {fileID: 0}
 --- !u!4 &1408838349
 Transform:
   m_ObjectHideFlags: 0

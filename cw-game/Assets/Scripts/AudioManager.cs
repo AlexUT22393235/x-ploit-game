@@ -1,10 +1,9 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // Necesario para detectar cambios de escena
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class AudioManager : MonoBehaviour
 {
-    // Instancia est�tica para poder acceder a ella desde cualquier otro script
-    // Ejemplo: AudioManager.instance.PlaySFX(...);
     public static AudioManager instance;
 
     [Header("--- Audio Source ---")]
@@ -15,69 +14,61 @@ public class AudioManager : MonoBehaviour
     public AudioClip backgroundGame1;
     public AudioClip backgroundGame2;
     public AudioClip backgroundGame3;
+    public AudioClip backgroundGame4; // Agregado según tu lista
 
     [Header("--- Audio Clip WonLost ---")]
     public AudioClip backgroundGameOver;
     public AudioClip backgroundWin;
 
     [Header("--- Audio Clip Protag ---")]
-
     public AudioClip danoioProta;
-
     public AudioClip dashProta;
-
     public AudioClip dashProtaAir;
-
     public AudioClip deadProta;
 
-
-
     [Header("--- Audio Clip Warrior ---")]
-
     public AudioClip warriorAtack1;
-
     public AudioClip warriorAtack2;
-
     public AudioClip warriorAtack3;
 
-
-
     [Header("--- Audio Clip Wizzard ---")]
-
     public AudioClip wizzardIgnis;
-
     public AudioClip wizzardFireballSound;
 
-
-
     [Header("--- Audio Clip Surfaces ---")]
-
     public AudioClip surfaceIceSlice1;
-
     public AudioClip surfaceIceSlice2;
-
     public AudioClip surfaceWalkSnow1;
-
     public AudioClip surfaceWalkSnow2;
-
     public AudioClip surfaceWalkStone1;
-
     public AudioClip surfaceWalkStone2;
-
     public AudioClip surfaceColapsedPlatform;
+
+    [Header("-- Audio Clip Pin Distance ---")]
+    public AudioClip danioDista;
+    public AudioClip distaAtack;
+    public AudioClip distanceExisting;
+
+    [Header("-- Audio Clip Pin Melee --")]
+    public AudioClip danioMelee;
+    public AudioClip meleeAtack;
+    public AudioClip meleeAtack2;
+    public AudioClip meleeDash;
+    public AudioClip meleeExisting;
+    public AudioClip muerteMelee;
+
+    // Referencia para controlar y detener la lista de reproducción
+    private Coroutine currentMusicCoroutine;
 
     void Awake()
     {
-        // --- PATR�N SINGLETON ---
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject); // �Esto hace la magia! El objeto no se destruye.
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            // Si ya existe un AudioManager (ej. volviste al men� y cargaste uno nuevo),
-            // destruye este duplicado para quedarte solo con el original.
             Destroy(gameObject);
             return;
         }
@@ -85,11 +76,9 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        // Iniciar m�sica de la primera escena
         PlayMusic(backgroundGame1);
     }
 
-    // Nos suscribimos al evento de cambio de escena
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -100,46 +89,174 @@ public class AudioManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    // Esta funci�n se ejecuta autom�ticamente cada vez que carga una escena
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         CheckSceneMusic(scene.name);
     }
 
-    // L�gica para decidir qu� m�sica tocar seg�n el nombre de la escena
     void CheckSceneMusic(string sceneName)
     {
-        // Ejemplo de l�gica (ajusta los nombres de tus escenas)
         switch (sceneName)
         {
             case "MainMenu":
-                PlayMusic(backgroundGame1);
+                PlayMusic(backgroundGame1, true);
                 break;
+
             case "Tower":
-                PlayMusic(backgroundGame2);
+                StartTowerPlaylist();
                 break;
+
             case "Nivel3":
-                PlayMusic(backgroundGame3);
+                PlayMusic(backgroundGame3, true);
                 break;
+
+            case "GameOverScene":
+                PlayMusic(backgroundGameOver, false);
+                break;
+
             default:
-                // Si no hay m�sica espec�fica, no hacemos nada o paramos la m�sica
                 break;
         }
     }
 
-    public void PlayMusic(AudioClip clip)
+    // --- MÉTODOS DE MÚSICA Y SFX GENÉRICOS ---
+
+    public void PlayMusic(AudioClip clip, bool shouldLoop = true)
     {
-        // Solo cambiamos la m�sica si el clip es diferente al que ya est� sonando
+        StopMusicCoroutine();
+
         if (musicSource.clip != clip)
         {
+            musicSource.Stop();
             musicSource.clip = clip;
+            musicSource.loop = shouldLoop;
             musicSource.Play();
+        }
+        else
+        {
+            if (musicSource.loop != shouldLoop)
+                musicSource.loop = shouldLoop;
+
+            if (!musicSource.isPlaying)
+                musicSource.Play();
         }
     }
 
-    // M�todo helper para reproducir efectos desde otros scripts
     public void PlaySFX(AudioClip clip)
     {
-        SFXSource.PlayOneShot(clip);
+        if (clip != null)
+        {
+            // Variamos ligeramente el tono (pitch) para que no suene robótico
+            // Esto es opcional, pero hace que los juegos se sientan más profesionales
+            SFXSource.pitch = Random.Range(0.9f, 1.1f);
+            SFXSource.PlayOneShot(clip);
+            SFXSource.pitch = 1f; // Reseteamos el pitch
+        }
+    }
+
+    // --- CORRUTINA DE PLAYLIST ---
+    public void StartTowerPlaylist()
+    {
+        StopMusicCoroutine();
+        currentMusicCoroutine = StartCoroutine(PlayPlaylistRoutine());
+    }
+
+    private void StopMusicCoroutine()
+    {
+        if (currentMusicCoroutine != null)
+        {
+            StopCoroutine(currentMusicCoroutine);
+            currentMusicCoroutine = null;
+        }
+    }
+
+    IEnumerator PlayPlaylistRoutine()
+    {
+        AudioClip[] playlist = { backgroundGame2, backgroundGame3, backgroundGame4 };
+        int currentIndex = 0;
+
+        while (true)
+        {
+            AudioClip currentClip = playlist[currentIndex];
+
+            if (currentClip != null)
+            {
+                musicSource.clip = currentClip;
+                musicSource.loop = false;
+
+                for (int i = 0; i < 2; i++)
+                {
+                    musicSource.Play();
+                    yield return new WaitForSeconds(currentClip.length);
+                }
+
+                musicSource.Stop();
+                yield return new WaitForSeconds(10f); // Silencio de 10s
+            }
+            else
+            {
+                Debug.LogWarning($"Clip nulo en playlist index {currentIndex}");
+                yield return null;
+            }
+
+            currentIndex++;
+            if (currentIndex >= playlist.Length) currentIndex = 0;
+        }
+    }
+
+    // ========================================================================
+    // --- NUEVA SECCIÓN: MÉTODOS PÚBLICOS PARA LLAMAR DESDE OTROS SCRIPTS ---
+    // ========================================================================
+
+    // PROTAGONISTA
+    public void PlayProtaDamage() => PlaySFX(danoioProta);
+    public void PlayProtaDash() => PlaySFX(dashProta);
+    public void PlayProtaDashAir() => PlaySFX(dashProtaAir);
+    public void PlayProtaDead() => PlaySFX(deadProta);
+
+    //Pinguino Distancia
+    public void PlayPinDisDanio() => PlaySFX(danioDista);
+    public void PlayPinDisAtack() => PlaySFX(distaAtack);
+
+    public void PlayPinDisExisting() => PlaySFX(distanceExisting);
+
+    //Pinguino Melee
+    public void PlayPinMeleeDanio() => PlaySFX(danioMelee);
+    public void PlayPinMeleeAtack() => PlaySFX(meleeAtack);
+    public void PlayPinMeleeDash() => PlaySFX(meleeDash);
+    public void PlayPinMeleeExisting() => PlaySFX(meleeExisting);
+    public void PlayPinMeleeMuerte() => PlaySFX(muerteMelee);
+
+
+    // GUERRERO (WARRIOR) - Lógica aleatoria incluida
+    public void PlayWarriorAttack()
+    {
+        // Elige uno de los 3 ataques al azar para dar variedad
+        int rand = Random.Range(0, 3);
+        switch (rand)
+        {
+            case 0: PlaySFX(warriorAtack1); break;
+            case 1: PlaySFX(warriorAtack2); break;
+            case 2: PlaySFX(warriorAtack3); break;
+        }
+    }
+
+    // MAGO (WIZZARD)
+    public void PlayWizzardIgnis() => PlaySFX(wizzardIgnis);
+    public void PlayWizzardFireball() => PlaySFX(wizzardFireballSound);
+
+    // SUPERFICIES (Pasos)
+    // Puedes llamar esto desde el script de movimiento cuando detecte suelo
+    public void PlayFootstepSnow()
+    {
+        // Alterna aleatoriamente entre los dos sonidos de nieve
+        if (Random.value > 0.5f) PlaySFX(surfaceWalkSnow1);
+        else PlaySFX(surfaceWalkSnow2);
+    }
+
+    public void PlayFootstepStone()
+    {
+        if (Random.value > 0.5f) PlaySFX(surfaceWalkStone1);
+        else PlaySFX(surfaceWalkStone2);
     }
 }

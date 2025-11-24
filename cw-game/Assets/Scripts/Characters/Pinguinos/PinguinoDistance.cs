@@ -65,6 +65,7 @@ public class PinguinoDistance : Enemy
         if (rb != null)
         {
             rb.linearVelocity = new Vector2(lastDirection < 0 ? -velocityIceSpike : velocityIceSpike, 0f);
+            AudioManager.instance.PlayPinDisAtack();
         }
     }
 }

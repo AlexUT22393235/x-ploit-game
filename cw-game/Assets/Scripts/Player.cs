@@ -104,10 +104,12 @@ public class Player : MonoBehaviour
                     {
                         case 1:
                             jumping = true;
+                            AudioManager.instance.PlayProtaDashAir();
                             onDash = false;
                             break;
                         case 2:
                             jumping = false;
+                            AudioManager.instance.PlayProtaDashAir();
                             onDash = true;
                             break;
                     }
@@ -125,6 +127,7 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Haciendo dash");
             onDash = true;
+            AudioManager.instance.PlayProtaDash();
             rb.AddForce(direction.normalized * force, ForceMode2D.Impulse);
         }
     }
@@ -137,7 +140,15 @@ public class Player : MonoBehaviour
         if (context.performed && !attacking && isGrounded)
         {
             attacking = true;
+            PlayAttackSound();
+            //AudioManager.instance.PlayWarriorAttack();
         }
+    }
+
+    protected virtual void PlayAttackSound()
+    {
+        // Si el script Player se usa directamente en el Guerrero, sonará esto:
+        AudioManager.instance.PlayWarriorAttack();
     }
 
     public virtual void TakeDamage(int damageAmount)
@@ -146,10 +157,12 @@ public class Player : MonoBehaviour
         // Debug.Log(gameObject.name + " ha recibido " + damageAmount + " de daño. Vida restante: " + life);
 
         onDamage = true;
+        AudioManager.instance.PlayProtaDamage();
 
         if (life <= 0)
         {
             die = true;
+            AudioManager.instance.PlayProtaDead();
             animator.SetBool("Die", die);
         }
     }

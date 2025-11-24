@@ -42,6 +42,7 @@ public class PinguinoMelee : Enemy
             else if (!hasDashed)
             {
                 onDash = true;
+                AudioManager.instance.PlayPinMeleeDash();
                 hasDashed = true;
                 onWalk = false;
                 onAttack = false;
@@ -101,6 +102,7 @@ public class PinguinoMelee : Enemy
     public override void OnAttack()
     {
         base.OnAttack();
+        AudioManager.instance.PlayPinMeleeAtack();
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
         if (distanceToPlayer <= attackRange)
