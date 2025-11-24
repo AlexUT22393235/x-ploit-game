@@ -1,0 +1,390 @@
+fileFormatVersion: 2
+guid: b5e61bda45a53cf4ba0c7666579a59d2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3839363942509453393
+    second: Killer whale_0
+  - first:
+      213: 7568726898677534145
+    second: Killer whale_1
+  - first:
+      213: -192259703747606029
+    second: Killer whale_2
+  - first:
+      213: 6283329758001917137
+    second: Killer whale_3
+  - first:
+      213: 8110606734949309590
+    second: Killer whale_4
+  - first:
+      213: 6217963072398834294
+    second: Killer whale_5
+  - first:
+      213: -6549081561016043260
+    second: Killer whale_6
+  - first:
+      213: 8292624654913621945
+    second: Killer whale_7
+  - first:
+      213: 8797924130119262540
+    second: Killer whale_8
+  - first:
+      213: 4329148159778529925
+    second: Killer whale_9
+  - first:
+      213: -685134435504536585
+    second: Killer whale_10
+  - first:
+      213: 87607694594321139
+    second: Killer whale_11
+  - first:
+      213: 3129548041670842172
+    second: Killer whale_12
+  - first:
+      213: -4608017919049780808
+    second: Killer whale_13
+  - first:
+      213: 3678726252630116053
+    second: Killer whale_14
+  - first:
+      213: -8761969888676735966
+    second: Killer whale_15
+  - first:
+      213: 2505761775872745492
+    second: Killer whale_16
+  - first:
+      213: 2139085411995884523
+    second: Killer whale_17
+  - first:
+      213: 1111037281058086070
+    second: Killer whale_18
+  - first:
+      213: 4370512102571584191
+    second: Killer whale_19
+  - first:
+      213: -1754206857744792953
+    second: Killer whale_20
+  - first:
+      213: -5601546092027806474
+    second: Killer whale_21
+  - first:
+      213: -4179622394878286891
+    second: Killer whale_22
+  - first:
+      213: 1886855944342722611
+    second: Killer whale_23
+  - first:
+      213: -8811761751416999416
+    second: Killer whale_24
+  - first:
+      213: -3937738825742135840
+    second: Killer whale_25
+  - first:
+      213: 3591973146549693463
+    second: Killer whale_26
+  - first:
+      213: 2088531647244952374
+    second: Killer whale_27
+  - first:
+      213: 6832316695600096414
+    second: Killer whale_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Killer whale_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 679
+        width: 493
+        height: 226
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15028b4f929284530800000000000000
+      internalID: 3839363942509453393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Killer whale_1
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 679
+        width: 493
+        height: 226
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cd4e957305890960800000000000000
+      internalID: 7568726898677534145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Killer whale_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 453
+        width: 493
+        height: 226
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f9808d61d4f45df0800000000000000
+      internalID: -192259703747606029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Killer whale_3
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 453
+        width: 493
+        height: 226
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dc6858df1fd23750800000000000000
+      internalID: 6283329758001917137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Killer whale_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 227
+        width: 493
+        height: 226
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69c5b858ad9ae8070800000000000000
+      internalID: 8110606734949309590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Killer whale_5
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 227
+        width: 493
+        height: 226
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67a34dc5874aa4650800000000000000
+      internalID: 6217963072398834294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Killer whale_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 493
+        height: 226
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 409f39ec40dfc15a0800000000000000
+      internalID: -6549081561016043260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Killer whale_7
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 1
+        width: 493
+        height: 226
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bfc5cbff22551370800000000000000
+      internalID: 8292624654913621945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: daf173381e8357c44b42c921f78b5e5b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":4.0},"gridSpriteSize":{"x":493.0,"y":226.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Killer whale_0: 3839363942509453393
+      Killer whale_1: 7568726898677534145
+      Killer whale_2: -192259703747606029
+      Killer whale_3: 6283329758001917137
+      Killer whale_4: 8110606734949309590
+      Killer whale_5: 6217963072398834294
+      Killer whale_6: -6549081561016043260
+      Killer whale_7: 8292624654913621945
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

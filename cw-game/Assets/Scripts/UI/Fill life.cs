@@ -4,12 +4,9 @@ using UnityEngine.UI;
 public class Filllife : MonoBehaviour
 {
     public Image fillLife;
-
-    private GameObject snowy;
+    private Player player;
 
     private float maxLife;
-
-    private Player player;
 
     void Start()
     {
@@ -17,11 +14,13 @@ public class Filllife : MonoBehaviour
 
         if (player != null)
         {
-            maxLife = player.life;
+            maxLife = player.life; 
         }
         else
         {
+            Debug.LogError("No se encontró el componente 'Player' en la escena. Deshabilitando el script Filllife.");
             enabled = false;
+            return;
         }
 
         fillLife.fillAmount = 1f;

@@ -4,7 +4,7 @@ public class Enemy : MonoBehaviour
 {
     public EdgeSensor edgeSensor;
     protected Player playerComponent;
-    protected Transform player;
+    protected Transform playerTransform;
     protected Rigidbody2D rb;
     protected Vector2 movement;
     protected Animator animator;
@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     protected float damageCooldown = .5f;
     protected float lastDamageTime = 0f;
     protected float attackDelay = 1.5f;
+    protected int pointsOnDefeat = 50;
 
     protected float nextAttackTime;
     protected int life;
@@ -37,15 +38,16 @@ public class Enemy : MonoBehaviour
 
     public virtual void Update()
     {
-        if (player == null)
+        if (playerComponent == null)
         {
+            SetAnimationStates(false, false, false);
             return;
         }
 
         bool platformAhead = edgeSensor.IsPlatformAhead;
 
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        Vector2 direction = (player.position - transform.position).normalized;
+        float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
+        Vector2 direction = (playerTransform.position - transform.position).normalized;
 
         if (distanceToPlayer <= detectionRange)
         {
@@ -93,7 +95,8 @@ public class Enemy : MonoBehaviour
     {
         if (onWalk)
         {
-            rb.MovePosition(rb.position + movement * speed * Time.deltaTime);
+            rb.linearVelocity = new Vector2(movement.x * speed, rb.linearVelocity.y);
+            // rb.MovePosition(rb.position + movement * speed * Time.deltaTime);
         }
     }
 
@@ -131,7 +134,7 @@ public class Enemy : MonoBehaviour
 
         if (playerComponent != null)
         {
-            player = playerComponent.transform;
+            playerTransform = playerComponent.transform;
         }
         else
         {
@@ -172,5 +175,9 @@ public class Enemy : MonoBehaviour
     protected void Die()
     {
         Destroy(gameObject);
+        if (Score.Instance != null)
+        {
+            Score.Instance.AddPoints(pointsOnDefeat);
+        }
     }
 }
