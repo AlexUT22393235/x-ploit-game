@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TowerGenerator : MonoBehaviour
 {
@@ -20,6 +21,13 @@ public class TowerGenerator : MonoBehaviour
 
         for (int i = 0; i < totalChunks; i++)
         {
+            // Si llegamos al piso 10 (índice 9) cargamos la escena del jefe
+            if (i >= 9)
+            {
+                Debug.Log("¡Llegando al Jefe Final!");
+                SceneManager.LoadScene("BossBattle");
+                return; // Detener generación
+            }
             // 1. Elegir un Chunk al azar de tu lista
             int randomIndex = Random.Range(0, chunkPrefabs.Length);
             LevelChunk prefabToSpawn = chunkPrefabs[randomIndex];
