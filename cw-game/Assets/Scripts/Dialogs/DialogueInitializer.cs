@@ -1,14 +1,15 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // Necesario para cargar escenas
-using System; // Necesario para el delegado Action
+using UnityEngine.SceneManagement; 
+using System; 
 
 /// <summary>
-/// Script de ejemplo para iniciar el diálogo al comienzo de una escena.
-/// Lee el rol seleccionado por el jugador para mostrar el sprite correcto.
+/// Gestiona la inicialización del diálogo al comienzo de la escena (Intro o Final).
+/// Lee el rol guardado para inyectar el sprite de personaje (Caballero/Mago) correcto.
 /// </summary>
 public class DialogueInitializer : MonoBehaviour
 {
-    // Define tu conversación directamente en el Inspector
+    // Secuencia de diálogo que se rellena en el Inspector
+    [Tooltip("La secuencia de conversación a reproducir.")]
     public DialogueSequence initialConversation; 
 
     [Header("Sprites del Protagonista")]
@@ -17,30 +18,26 @@ public class DialogueInitializer : MonoBehaviour
     [Tooltip("Sprite de Snowy (Foca) en el rol de Mago.")]
     public Sprite mageSprite;
     
-    // Clave y valores constantes deben coincidir con MainMenu.cs
+    // Constantes de configuración. Deben coincidir con MainMenu.cs
     private const string SelectedRoleKey = "SelectedRole";
     private const int RoleKnight = 0;
     private const int RoleMage = 1;
-    private const string TowerSceneName = "Tower"; // Nombre de la escena principal del juego
+    // Usamos TowerSceneName solo como ejemplo. En FinalScene, querrías cargar la escena de créditos.
+    private const string TowerSceneName = "Tower"; 
 
 
     void Start()
     {
-        // Suscribirse al evento de finalización del diálogo para saber cuándo cargar la siguiente escena.
-        // NOTA: Asegúrate de que DialogueManager tiene 'public static event Action OnDialogueEnd;'
+        // 1. Suscribirse al evento para saber cuándo el diálogo ha terminado y debemos cargar el nivel.
         DialogueManager.OnDialogueEnd += HandleDialogueEnd;
 
-        // 1. Determinar el rol y obtener el sprite
+        // 2. Obtener el sprite del protagonista basado en la selección del menú.
         Sprite protagonistSprite = GetProtagonistSprite();
 
-        // 2. Inyectar el sprite en la conversación (opcional: línea 1, donde habla Snowy)
-        if (protagonistSprite != null && initialConversation != null && initialConversation.conversation.Length > 1)
-        {
-            // Asumiendo que la línea 1 (índice 1) es donde habla Snowy (el protagonista)
-            initialConversation.conversation[1].characterSprite = protagonistSprite;
-        }
+        // 3. Inyectar el sprite correcto en todas las líneas de diálogo de "Snowy".
+        InjectProtagonistSprite(protagonistSprite);
 
-        // 3. Iniciar el diálogo (logica original)
+        // 4. Iniciar el sistema de diálogo.
         DialogueManager manager = FindAnyObjectByType<DialogueManager>();
 
         if (manager != null)
@@ -58,20 +55,46 @@ public class DialogueInitializer : MonoBehaviour
         }
     }
     
+    /// <summary>
+    /// Itera sobre toda la conversación e inyecta el sprite del rol seleccionado
+    /// en cada línea donde el Speaker Name es "Snowy".
+    /// </summary>
+    /// <param name="protagonistSprite">El sprite seleccionado (Caballero o Mago).</param>
+    private void InjectProtagonistSprite(Sprite protagonistSprite)
+    {
+        if (protagonistSprite == null || initialConversation == null) return;
+
+        // Recorre CADA entrada de la conversación.
+        for (int i = 0; i < initialConversation.conversation.Length; i++)
+        {
+            DialogueEntry entry = initialConversation.conversation[i];
+
+            // Verifica si el orador es "Snowy" (ignorando mayúsculas/minúsculas).
+            if (entry.speakerName.Equals("Snowy", StringComparison.OrdinalIgnoreCase))
+            {
+                // Solo si el orador es Snowy, inyectamos el sprite seleccionado.
+                initialConversation.conversation[i].characterSprite = protagonistSprite;
+            }
+        }
+        Debug.Log("Inyección de sprites de Snowy completada.");
+    }
+
+    /// <summary>
+    /// Se llama al destruir el objeto para limpiar la suscripción al evento.
+    /// </summary>
     private void OnDestroy()
     {
-        // Desuscribirse del evento para evitar errores cuando este objeto es destruido
         DialogueManager.OnDialogueEnd -= HandleDialogueEnd;
     }
 
     /// <summary>
-    /// Se llama cuando el diálogo termina (disparado por DialogueManager).
-    /// Inicia la escena principal del juego.
+    /// Se ejecuta cuando el DialogueManager ha completado toda la conversación.
+    /// (En la escena Intro cargará Tower; en una escena Final, cargaría Créditos).
     /// </summary>
     private void HandleDialogueEnd()
     {
-        Debug.Log("Diálogo de introducción finalizado. Cargando escena: " + TowerSceneName);
-        // Carga la escena de la torre, reemplazando la escena "Intro" actual.
+        // Aquí puedes cambiar a la escena de créditos si estás en la escena final.
+        Debug.Log("Diálogo finalizado. Cargando escena: " + TowerSceneName);
         SceneManager.LoadScene(TowerSceneName);
     }
 
@@ -87,17 +110,15 @@ public class DialogueInitializer : MonoBehaviour
             
             if (selectedRole == RoleKnight)
             {
-                Debug.Log("Cargando diálogo para Caballero.");
                 return knightSprite;
             }
             else if (selectedRole == RoleMage)
             {
-                Debug.Log("Cargando diálogo para Mago.");
                 return mageSprite;
             }
         }
         
         Debug.LogWarning("No se encontró un rol seleccionado. Usando sprite de Caballero por defecto.");
-        return knightSprite; // Retorna Caballero por defecto si no hay clave.
+        return knightSprite; // Retorna Caballero por defecto.
     }
 }
