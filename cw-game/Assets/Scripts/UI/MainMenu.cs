@@ -28,6 +28,7 @@ public class MainMenu : MonoBehaviour
     {
         mainMenu.SetActive(false);
         roleMenu.SetActive(true);
+        typeMenu.SetActive(false);
     }
 
     public void OpenTypePanel()
