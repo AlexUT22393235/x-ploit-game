@@ -24,13 +24,23 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        
+        if (GameManager.Instance == null)
+        {
+            Debug.LogError("No se encontró una instancia de GameManager en la escena. Asegúrate de tener uno.");
+        }
     }
 
     public virtual void Update()
     {
         if (die)
         {
-            SetAnimationStates(direction.magnitude, false, false, false, false);
+            if (rb != null)
+            {
+                rb.linearVelocity = Vector2.zero;
+                rb.angularVelocity = 0f;
+            }
+            SetAnimationStates(0, false, false, false, false);
             return;
         }
         
@@ -52,8 +62,6 @@ public class Player : MonoBehaviour
 
     public virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        // Debug.Log("Collision detected with " + collision.collider.name);
-
         if (collision.collider.CompareTag("Floor") || collision.collider.CompareTag("Enemy"))
         {
             isGrounded = true;
@@ -72,44 +80,36 @@ public class Player : MonoBehaviour
 
     protected virtual void OnMove(InputAction.CallbackContext context)
     {
-        // Debug.Log("Dirección de movimiento: " + direction);
+        if (die) return;
         direction = context.ReadValue<Vector2>();
     }
 
     protected virtual void OnJump(InputAction.CallbackContext context)
     {
         if (die) return;
-        // Debug.Log("Detectado salto");
-
         if (context.performed)
         {
-            // Debug.Log("Haciendo salto");
             if (isGrounded || jumps < 2)
             {
                 if (isGrounded)
                 {
                     jumps = 0;
                 }
-
-                // rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f); // Resetear la velocidad vertical para un salto consistente
-                // rb.AddForce(Vector2.up * force * 1.5f, ForceMode2D.Impulse);
                 rb.AddForce(Vector2.up * force * 1.6f, ForceMode2D.Impulse);
-
                 jumps++;
                 isGrounded = false;
-
                 if (jumps >= 1 && jumps <= 2)
                 {
                     switch (jumps)
                     {
                         case 1:
                             jumping = true;
-                            AudioManager.instance.PlayProtaDashAir();
+                            // AudioManager.instance.PlayProtaDashAir();
                             onDash = false;
                             break;
                         case 2:
                             jumping = false;
-                            AudioManager.instance.PlayProtaDashAir();
+                            // AudioManager.instance.PlayProtaDashAir();
                             onDash = true;
                             break;
                     }
@@ -121,13 +121,11 @@ public class Player : MonoBehaviour
     protected virtual void OnDash(InputAction.CallbackContext context)
     {
         if(die) return;
-        // Debug.Log("Detectado dash");
-
         if (context.performed && isGrounded)
         {
             Debug.Log("Haciendo dash");
             onDash = true;
-            AudioManager.instance.PlayProtaDash();
+            // AudioManager.instance.PlayProtaDash();
             rb.AddForce(direction.normalized * force, ForceMode2D.Impulse);
         }
     }
@@ -135,8 +133,6 @@ public class Player : MonoBehaviour
     protected virtual void OnAttack(InputAction.CallbackContext context)
     {
         if(die) return;
-        // Debug.Log("Detectado ataque");
-
         if (context.performed && !attacking && isGrounded)
         {
             attacking = true;
@@ -148,22 +144,38 @@ public class Player : MonoBehaviour
     protected virtual void PlayAttackSound()
     {
         // Si el script Player se usa directamente en el Guerrero, sonará esto:
-        AudioManager.instance.PlayWarriorAttack();
+        // AudioManager.instance.PlayWarriorAttack();
     }
 
     public virtual void TakeDamage(int damageAmount)
     {
+        if (die) return;
+        
         life -= damageAmount;
-        // Debug.Log(gameObject.name + " ha recibido " + damageAmount + " de daño. Vida restante: " + life);
+        Debug.Log(gameObject.name + " ha recibido " + damageAmount + " de daño. Vida restante: " + life);
 
         onDamage = true;
-        AudioManager.instance.PlayProtaDamage();
+        // AudioManager.instance.PlayProtaDamage();
 
         if (life <= 0)
         {
+            life = 0;
             die = true;
-            AudioManager.instance.PlayProtaDead();
             animator.SetBool("Die", die);
+            
+            var inputAction = GetComponent<PlayerInput>();
+            if (inputAction != null)
+            {
+                inputAction.enabled = false;
+            }
+            
+            if (rb != null)
+            {
+                rb.simulated = false;
+            }
+            
+            // GameManager.Instance?.PlayerDied();
+              GameManager.Instance?.PlayerDied();
         }
     }
 
@@ -189,7 +201,9 @@ public class Player : MonoBehaviour
 
     protected void Die()
     {
+        // Se ejecuta al final de la animación de muerte (si tienes un evento de animación)
         Debug.Log(gameObject.name + " ha muerto.");
-        Destroy(gameObject);
+        // Opcional: Destruir o desactivar el GameObject aquí si ya no quieres que se vea.
+        // Destroy(gameObject);
     }
 }
