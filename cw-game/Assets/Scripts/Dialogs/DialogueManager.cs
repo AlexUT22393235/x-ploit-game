@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using TMPro; // Asegúrate de que estás usando TextMeshPro (Recomendado para mejor texto)
+using System;
 
 /// <summary>
 /// Gestiona la visualización de diálogos, el efecto de máquina de escribir y el avance de la conversación.
@@ -33,6 +34,7 @@ public class DialogueManager : MonoBehaviour
     private int currentEntryIndex = 0;
     private bool isTyping = false;
     private bool dialogueActive = false;
+    public static event Action OnDialogueEnd;
 
     // Inicialización del sistema
     private void Start()
@@ -177,6 +179,7 @@ public class DialogueManager : MonoBehaviour
         
         // Reanudar el juego
         Time.timeScale = 1f; 
+        OnDialogueEnd?.Invoke();
 
         Debug.Log("Fin del Diálogo. Juego reanudado.");
     }

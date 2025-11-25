@@ -8,7 +8,16 @@ public class MainMenu : MonoBehaviour
     public GameObject roleMenu;
     public GameObject typeMenu;
 
+    // Constantes para los nombres de las escenas y claves de PlayerPrefs
     private const string SelectedRoleKey = "SelectedRole";
+    private const string IntroSceneName = "Intro"; // Nombre de tu escena de diálogo
+    private const string TowerSceneName = "Tower"; // Nombre de tu escena de nivel
+    private const string InfiniteSceneName = "Infitine"; // Nombre de tu escena de modo infinito
+    
+    // Constantes para el valor del rol
+    public const int RoleKnight = 0;
+    public const int RoleMage = 1;
+
 
     public void OpenOptionPanel()
     {
@@ -40,14 +49,16 @@ public class MainMenu : MonoBehaviour
 
     public void SelectKnight() 
     {
-        PlayerPrefs.SetInt(SelectedRoleKey, 0); 
+        // Guardar el rol como Caballero (0)
+        PlayerPrefs.SetInt(SelectedRoleKey, RoleKnight); 
         Debug.Log("Rol seleccionado: Caballero");
         OpenTypePanel();
     }
 
     public void SelectMage() 
     {
-        PlayerPrefs.SetInt(SelectedRoleKey, 1);
+        // Guardar el rol como Mago (1)
+        PlayerPrefs.SetInt(SelectedRoleKey, RoleMage);
         Debug.Log("Rol seleccionado: Mago");
         OpenTypePanel();
     }
@@ -57,7 +68,8 @@ public class MainMenu : MonoBehaviour
     {
         if (PlayerPrefs.HasKey(SelectedRoleKey))
         {
-            SceneManager.LoadScene("Tower");
+            // Cargar la escena de introducción (diálogo)
+            SceneManager.LoadScene(IntroSceneName);
         }
         else
         {
@@ -70,7 +82,8 @@ public class MainMenu : MonoBehaviour
     {
         if (PlayerPrefs.HasKey(SelectedRoleKey))
         {
-            SceneManager.LoadScene("Infitine");
+            // Cargar la escena de modo infinito
+            SceneManager.LoadScene(InfiniteSceneName);
         }
         else
         {
@@ -79,7 +92,6 @@ public class MainMenu : MonoBehaviour
         }
     }
     
-
     public void QuitGame()
     {
         Application.Quit();
