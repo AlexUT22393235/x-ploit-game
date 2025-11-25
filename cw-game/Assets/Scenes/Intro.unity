@@ -144,17 +144,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 82689359}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1696239865}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 463.63116, y: 352.36868}
-  m_SizeDelta: {x: 349.656, y: 349.656}
+  m_AnchoredPosition: {x: 497.913, y: 323.8}
+  m_SizeDelta: {x: 281.091, y: 292.519}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &82689361
 MonoBehaviour:
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8436888122996679698, guid: 067f9efbc9adcae4aa1ef94f6d50079a, type: 3}
+  m_Sprite: {fileID: -1794240728052684083, guid: 6516d3aee6df5794192570307ebe32be, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1021,7 +1021,7 @@ MonoBehaviour:
     - speakerName: Noc
       dialogueText: "\xA1Bienvenido, Snowy! Mira hacia arriba. Esa es la Torre Helada,
         nuestra \xFAnica esperanza."
-      characterSprite: {fileID: 8436888122996679698, guid: 067f9efbc9adcae4aa1ef94f6d50079a, type: 3}
+      characterSprite: {fileID: -1794240728052684083, guid: 6516d3aee6df5794192570307ebe32be, type: 3}
       position: 1
     - speakerName: Snowy
       dialogueText: "Es... enorme. \xBFDe verdad tenemos que subir todo eso antes
@@ -1031,12 +1031,12 @@ MonoBehaviour:
     - speakerName: Noc
       dialogueText: "No hay otra. Pero t\xFA eres el mejor. Primero, mu\xE9vete:
         usa A para izquierda y D para derecha."
-      characterSprite: {fileID: 8436888122996679698, guid: 067f9efbc9adcae4aa1ef94f6d50079a, type: 3}
+      characterSprite: {fileID: -1794240728052684083, guid: 6516d3aee6df5794192570307ebe32be, type: 3}
       position: 1
     - speakerName: Noc
       dialogueText: "Ahora, practica el salto. Presiona ESPACIO. R\xE1pido, intenta
         un doble salto con Doble ESPACIO."
-      characterSprite: {fileID: 8436888122996679698, guid: 067f9efbc9adcae4aa1ef94f6d50079a, type: 3}
+      characterSprite: {fileID: -1794240728052684083, guid: 6516d3aee6df5794192570307ebe32be, type: 3}
       position: 1
     - speakerName: Snowy
       dialogueText: "\xA1Wao! Es mucho m\xE1s \xE1gil de lo que pens\xE9."
@@ -1045,17 +1045,17 @@ MonoBehaviour:
     - speakerName: Noc
       dialogueText: "Bien. Recuerda: el ascenso debe ser constante. Si el agua te
         toca, la Orca te devorar\xE1."
-      characterSprite: {fileID: 8436888122996679698, guid: 067f9efbc9adcae4aa1ef94f6d50079a, type: 3}
+      characterSprite: {fileID: -1794240728052684083, guid: 6516d3aee6df5794192570307ebe32be, type: 3}
       position: 1
     - speakerName: Noc
       dialogueText: "Por \xFAltimo, tu ataque: usa Z para tu ataque principal (espada
         o Fireball, seg\xFAn tu rol)."
-      characterSprite: {fileID: 8436888122996679698, guid: 067f9efbc9adcae4aa1ef94f6d50079a, type: 3}
+      characterSprite: {fileID: -1794240728052684083, guid: 6516d3aee6df5794192570307ebe32be, type: 3}
       position: 1
     - speakerName: Noc
       dialogueText: "Si necesitas velocidad, usa X para el dash. \xA1Y domina el
         rebote en paredes! \xA1Buena suerte, Snowy!"
-      characterSprite: {fileID: 8436888122996679698, guid: 067f9efbc9adcae4aa1ef94f6d50079a, type: 3}
+      characterSprite: {fileID: -1794240728052684083, guid: 6516d3aee6df5794192570307ebe32be, type: 3}
       position: 1
   knightSprite: {fileID: -5266207381025274554, guid: d4326784e94302243b7cda6234e91b37, type: 3}
   mageSprite: {fileID: 8436888122996679698, guid: 067f9efbc9adcae4aa1ef94f6d50079a, type: 3}
