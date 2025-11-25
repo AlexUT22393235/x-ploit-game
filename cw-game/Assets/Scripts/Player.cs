@@ -141,7 +141,7 @@ public class Player : MonoBehaviour
         {
             attacking = true;
             PlayAttackSound();
-            //AudioManager.instance.PlayWarriorAttack();
+            // AudioManager.instance.PlayWarriorAttack();
         }
     }
 
@@ -157,12 +157,12 @@ public class Player : MonoBehaviour
         // Debug.Log(gameObject.name + " ha recibido " + damageAmount + " de daño. Vida restante: " + life);
 
         onDamage = true;
-        // AudioManager.instance.PlayProtaDamage();
+        AudioManager.instance.PlayProtaDamage();
 
         if (life <= 0)
         {
             die = true;
-            // AudioManager.instance.PlayProtaDead();
+            AudioManager.instance.PlayProtaDead();
             animator.SetBool("Die", die);
         }
     }
