@@ -25,10 +25,14 @@ public class fireballPrefab : Projectiles
             if (collision.gameObject.CompareTag("Enemy"))
             {
                 Enemy enemyHealth = collision.gameObject.GetComponent<Enemy>();
+                Boss BossHealth = collision.gameObject.GetComponent<Boss>();
 
                 if (enemyHealth != null)
                 {
                     enemyHealth.TakeDamage(damageAmount);
+                } else if (BossHealth != null)
+                {
+                    BossHealth.TakeDamage(damageAmount);
                 }
             }
         }

@@ -1857,6 +1857,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
   m_PrefabInstance: {fileID: 2185195684545602674}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1349157195 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4981067579563199516, guid: e1ce94c791fd3fc4c875877933d6dd17, type: 3}
+  m_PrefabInstance: {fileID: 5987430345879904901}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1349157197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349157195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74bbfee411562424193d0626c16399ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Boss
 --- !u!1001 &1351884921
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3407,10 +3424,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9164829578948018501, guid: e1ce94c791fd3fc4c875877933d6dd17, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4981067579563199516, guid: e1ce94c791fd3fc4c875877933d6dd17, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1349157197}
   m_SourcePrefab: {fileID: 100100000, guid: e1ce94c791fd3fc4c875877933d6dd17, type: 3}
 --- !u!1001 &6621720260873324594
 PrefabInstance:

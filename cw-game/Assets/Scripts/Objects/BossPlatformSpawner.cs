@@ -57,7 +57,7 @@ public class BossPlatformSpawner : MonoBehaviour
 
     IEnumerator SpawnArenaSequence()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.1f);
 
         // Distribución configurable mediante `leftEdge`, `rightEdge` y `platformSpacing` en el Inspector
         for (float x = leftEdge; x <= rightEdge; x += platformSpacing)

@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
 
     public virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collision detected with " + collision.collider.name);
+        // Debug.Log("Collision detected with " + collision.collider.name);
 
         if (collision.collider.CompareTag("Floor") || collision.collider.CompareTag("Enemy"))
         {
@@ -83,7 +83,7 @@ public class Player : MonoBehaviour
 
         if (context.performed)
         {
-            Debug.Log("Haciendo salto");
+            // Debug.Log("Haciendo salto");
             if (isGrounded || jumps < 2)
             {
                 if (isGrounded)
@@ -157,12 +157,12 @@ public class Player : MonoBehaviour
         // Debug.Log(gameObject.name + " ha recibido " + damageAmount + " de daño. Vida restante: " + life);
 
         onDamage = true;
-        AudioManager.instance.PlayProtaDamage();
+        // AudioManager.instance.PlayProtaDamage();
 
         if (life <= 0)
         {
             die = true;
-            AudioManager.instance.PlayProtaDead();
+            // AudioManager.instance.PlayProtaDead();
             animator.SetBool("Die", die);
         }
     }
@@ -189,6 +189,7 @@ public class Player : MonoBehaviour
 
     protected void Die()
     {
+        Debug.Log(gameObject.name + " ha muerto.");
         Destroy(gameObject);
     }
 }

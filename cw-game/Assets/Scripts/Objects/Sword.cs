@@ -13,10 +13,15 @@ public class Sword : MonoBehaviour
             // Debug.Log("Sword hit an enemy!");
 
             Enemy enemyHealth = other.gameObject.GetComponent<Enemy>();
+            Boss BossHealth = other.gameObject.GetComponent<Boss>();
 
             if (enemyHealth != null)
             {
                 enemyHealth.TakeDamage(damageAmount);
+            }
+            else if (BossHealth != null)
+            {
+                BossHealth.TakeDamage(damageAmount);
             }
         }
     }

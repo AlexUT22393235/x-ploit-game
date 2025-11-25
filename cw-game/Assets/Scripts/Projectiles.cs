@@ -38,7 +38,7 @@ public class Projectiles : MonoBehaviour
 
     public virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("The projectile collided with " + collision.gameObject.name);
+        // Debug.Log("The projectile collided with " + collision.gameObject.name);
 
         if (hasCollided)
         {
@@ -56,7 +56,7 @@ public class Projectiles : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Enemigo: No se encontró ningún objeto con el componente Player en la escena.");
+            // Debug.LogError("Enemigo: No se encontró ningún objeto con el componente Player en la escena.");
         }
     }
 
