@@ -8,6 +8,12 @@ TagManager:
   - Enemy
   - ObjectBackground
   - Sword
+  - Ice
+  - SnowSurface
+  - IceSurface
+  - StoneSurface
+  - SpikeSurface
+  - ColapsedSurface
   layers:
   - Default
   - TransparentFX

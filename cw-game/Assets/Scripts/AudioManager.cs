@@ -62,6 +62,7 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
+        Debug.Log($"[AudioManager] Naciendo... ID: {gameObject.GetInstanceID()} en Escena: {SceneManager.GetActiveScene().name}");
         if (instance == null)
         {
             instance = this;
@@ -69,9 +70,16 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
+            Debug.LogWarning($"[AudioManager] ¡Detectado duplicado! Destruyendo el nuevo que intentó nacer en: {SceneManager.GetActiveScene().name}");
             Destroy(gameObject);
             return;
         }
+    }
+
+    void OnDestroy()
+    {
+        // Si el objeto se destruye, nos avisará
+        Debug.LogWarning($"[AudioManager] ¡ME ESTÁN DESTRUYENDO! ID: {gameObject.GetInstanceID()}. Causa probable: Carga de escena o destrucción manual.");
     }
 
     void Start()
@@ -259,4 +267,6 @@ public class AudioManager : MonoBehaviour
         if (Random.value > 0.5f) PlaySFX(surfaceWalkStone1);
         else PlaySFX(surfaceWalkStone2);
     }
+
+
 }
