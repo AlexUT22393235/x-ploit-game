@@ -3842,8 +3842,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddca927c6d4beac4881a59aa4cc828e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameSetup
-  knightCharacter: {fileID: 0}
-  mageCharacter: {fileID: 0}
+  knightCharacter: {fileID: 2006090437375923402}
+  mageCharacter: {fileID: 853885740834129780}
 --- !u!4 &1684961002
 Transform:
   m_ObjectHideFlags: 0
@@ -4880,6 +4880,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e92d89a6ab827340b25ebea54f1ca98, type: 3}
+--- !u!1 &853885740834129780 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8409210061441810867, guid: 1e92d89a6ab827340b25ebea54f1ca98, type: 3}
+  m_PrefabInstance: {fileID: 853885740834129779}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1028063929506541368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5140,6 +5145,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e06684fb3871d84fadfe3f21c757a40, type: 3}
+--- !u!1 &2006090437375923402 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 760272333551567286, guid: 2e06684fb3871d84fadfe3f21c757a40, type: 3}
+  m_PrefabInstance: {fileID: 2006090437375923401}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2185195684545602674
 PrefabInstance:
   m_ObjectHideFlags: 0
