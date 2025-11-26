@@ -63,18 +63,18 @@ public class Boss : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Player"))
-        {
-            if (Time.time >= lastDamageTime + damageCooldown)
-            {
-                playerComponent.TakeDamage(damage);
+    // private void OnCollisionStay2D(Collision2D collision)
+    // {
+    //     if (collision.collider.CompareTag("Player"))
+    //     {
+    //         if (Time.time >= lastDamageTime + damageCooldown)
+    //         {
+    //             playerComponent.TakeDamage(damage);
 
-                lastDamageTime = Time.time;
-            }
-        }
-    }
+    //             lastDamageTime = Time.time;
+    //         }
+    //     }
+    // }
 
     private void FindPlayer()
     {

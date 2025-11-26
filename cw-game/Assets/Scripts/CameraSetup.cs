@@ -1,27 +1,32 @@
 using UnityEngine;
 using Unity.Cinemachine;
+using System.Collections; // Necesario para IEnumerator
 
 public class CameraSetup : MonoBehaviour
 {
-    void Start()
+    IEnumerator Start()
     {
-        // 1. Obtenemos la referencia a la cámara en este mismo objeto
-        var virtualCamera = GetComponent<CinemachineCamera>();
+        // Esperamos un frame. Esto permite que otros scripts (como el del Player)
+        // terminen su Awake/Start antes de buscarlo.
+        yield return null; 
 
-        // 2. Buscamos el objeto que contiene la clase 'Player'
-        Player playerScript = FindAnyObjectByType<Player>();
+        var virtualCamera = GetComponent<CinemachineCamera>();
+        
+        // Usamos FindFirstObjectByType que es ligeramente más rápido/moderno que FindAny
+        Player playerScript = FindFirstObjectByType<Player>();
 
         if (playerScript != null && virtualCamera != null)
         {
-            // 3. Asignamos el Transform del player a los objetivos de la cámara
             virtualCamera.Follow = playerScript.transform;
-            virtualCamera.LookAt = playerScript.transform; // Opcional: Si quieres que rote mirando al player
-
-            Debug.Log("Player encontrado y asignado a la cámara.");
+            virtualCamera.LookAt = playerScript.transform; 
+            Debug.Log("Player encontrado y asignado.");
         }
         else
         {
-            Debug.LogWarning("No se encontró el Player o la Cámara Virtual.");
+            // Si falla, intentamos buscarlo de nuevo en un segundo (reintento)
+            Debug.LogWarning("Reintentando búsqueda del player...");
+            yield return new WaitForSeconds(0.5f);
+            StartCoroutine(Start()); 
         }
     }
 }

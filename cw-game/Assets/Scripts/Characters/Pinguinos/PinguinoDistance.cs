@@ -22,6 +22,18 @@ public class PinguinoDistance : Enemy
         pointsOnDefeat = 25;
 
         edgeSensor = null;
+
+        Vector2 direction = (playerTransform.position - transform.position).normalized;
+
+        if (direction.x < 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+
+        else if (direction.x > 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
     }
 
     protected override void Update()
