@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: aba47d48fdb12fc4cba357c1bdc14885
+guid: a4f745d7eada6db45bb7411cc4c263ac
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4138637606396788614
-    second: grim-hidden_0
+      213: -1198260224233227898
+    second: unnamed (5)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: grim-hidden_0
+      name: unnamed (5)_0
       rect:
         serializedVersion: 2
-        x: 63
-        y: 24
-        width: 382
-        height: 572
+        x: 0
+        y: 0
+        width: 1024
+        height: 583
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 68f7a5fb9f46f6930800000000000000
-      internalID: 4138637606396788614
+      spriteID: 689391abcacee5fe0800000000000000
+      internalID: -1198260224233227898
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      grim-hidden_0: 4138637606396788614
+      unnamed (5)_0: -1198260224233227898
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
