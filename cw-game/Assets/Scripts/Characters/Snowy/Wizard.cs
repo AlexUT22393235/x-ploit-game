@@ -4,15 +4,24 @@ public class SnowyWizard : Player
 {
     private float velocityFireball = 2f;
 
-    public GameObject fireballPrefab;
+    private GameObject fireballPrefab;
+
+    protected override void Start()
+    {
+        base.Start();
+        fireballPrefab = GameObject.Find("Fireball");
+
+        if (fireballPrefab == null)
+        {
+            Debug.LogError("¡No se encontró el objeto 'Fireball' en la escena!");
+        }
+    }
 
     protected override void PlayAttackSound()
     {
-        // Aqu� eliges el sonido que quieras para el inicio del ataque del mago
-        // Puede ser el sonido de cargar magia (Ignis) o el lanzamiento
         AudioManager.instance.PlayWizzardIgnis();
     }
-    public void ThrowFireball()
+    private void ThrowFireball()
     {
         Vector3 spawnOffset = new Vector3(.25f * lastDirection, 0f, 0f);
         GameObject nuevoProyectil = Instantiate(fireballPrefab, transform.position + spawnOffset, transform.rotation);

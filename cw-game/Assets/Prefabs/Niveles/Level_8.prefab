@@ -253,7 +253,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 4e5c317ebf8137b4aaaa0b1f368f7452, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -823,6 +823,10 @@ PrefabInstance:
       value: 1.3163161
       objectReference: {fileID: 0}
     - target: {fileID: 1899963106340754770, guid: 36c0a49d59c699147ae63d3dc73185a1, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 4e5c317ebf8137b4aaaa0b1f368f7452, type: 2}
+    - target: {fileID: 1899963106340754770, guid: 36c0a49d59c699147ae63d3dc73185a1, type: 3}
       propertyPath: m_Offset.x
       value: 0.0028229952
       objectReference: {fileID: 0}
@@ -912,6 +916,10 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 0.7655436
       objectReference: {fileID: 0}
+    - target: {fileID: 4369680680831732096, guid: 7412b61b36552fe499f186789dc91d65, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 82071045bd70b094286f3254a486e0a4, type: 2}
     - target: {fileID: 4369680680831732096, guid: 7412b61b36552fe499f186789dc91d65, type: 3}
       propertyPath: m_Offset.x
       value: -0.011404589
@@ -1095,6 +1103,10 @@ PrefabInstance:
       value: 0.90863717
       objectReference: {fileID: 0}
     - target: {fileID: 4369680680831732096, guid: 7412b61b36552fe499f186789dc91d65, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 4e5c317ebf8137b4aaaa0b1f368f7452, type: 2}
+    - target: {fileID: 4369680680831732096, guid: 7412b61b36552fe499f186789dc91d65, type: 3}
       propertyPath: m_Offset.x
       value: -0.08295137
       objectReference: {fileID: 0}
@@ -1184,6 +1196,10 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 0.7655436
       objectReference: {fileID: 0}
+    - target: {fileID: 4369680680831732096, guid: 7412b61b36552fe499f186789dc91d65, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 4e5c317ebf8137b4aaaa0b1f368f7452, type: 2}
     - target: {fileID: 4369680680831732096, guid: 7412b61b36552fe499f186789dc91d65, type: 3}
       propertyPath: m_Offset.x
       value: -0.011404589
@@ -1342,6 +1358,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -765133563, guid: 30c90cf793c60d749bea442943c08586, type: 3}
+    - target: {fileID: 8178505419354098723, guid: 5c894f5c3cf93104aaa188af1b901d1b, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 4e5c317ebf8137b4aaaa0b1f368f7452, type: 2}
     - target: {fileID: 8178505419354098723, guid: 5c894f5c3cf93104aaa188af1b901d1b, type: 3}
       propertyPath: m_UsedByEffector
       value: 1

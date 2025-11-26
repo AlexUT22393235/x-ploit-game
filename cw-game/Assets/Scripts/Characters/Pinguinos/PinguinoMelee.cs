@@ -7,21 +7,20 @@ public class PinguinoMelee : Enemy
 
     private bool hasDashed = false;
     private bool onDash = false;
-
     private bool damageDealt = false;
 
-    public override void Start()
+    protected override void Start()
     {
         base.Start();
 
         life = 45;
         attackRange = 0.29f;
         damage = 15;
-        attackDelay = .6f;
+        attackDelay = 2f;
         pointsOnDefeat = 50;
     }
 
-    public override void Update()
+    protected override void Update()
     {
         if (playerComponent == null)
         {
@@ -67,7 +66,7 @@ public class PinguinoMelee : Enemy
         SetAnimationStates(onDash, onWalk, onAttack, onDamage);
     }
 
-    public override void FixedUpdate()
+    protected override void FixedUpdate()
     {
         if (onDash)
         {
@@ -81,7 +80,7 @@ public class PinguinoMelee : Enemy
         }
     }
 
-    public override void OnCollisionEnter2D(Collision2D collision)
+    protected override void OnCollisionEnter2D(Collision2D collision)
     {
         if (onDash && !damageDealt)
         {
@@ -104,7 +103,7 @@ public class PinguinoMelee : Enemy
         animator.SetBool("Damage", damage);
     }
 
-    public override void OnAttack()
+    protected override void OnAttack()
     {
         base.OnAttack();
         AudioManager.instance.PlayPinMeleeAtack();
@@ -116,7 +115,7 @@ public class PinguinoMelee : Enemy
         }
     }
 
-    protected void DisableDash()
+    private void DisableDash()
     {
         onDash = false;
         if (Vector2.Distance(transform.position, playerTransform.position) > attackRange)

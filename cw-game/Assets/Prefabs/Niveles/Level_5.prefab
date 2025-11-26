@@ -182,7 +182,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 82071045bd70b094286f3254a486e0a4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -829,6 +829,10 @@ PrefabInstance:
       value: 0.5768497
       objectReference: {fileID: 0}
     - target: {fileID: 1899963106340754770, guid: 36c0a49d59c699147ae63d3dc73185a1, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 4e5c317ebf8137b4aaaa0b1f368f7452, type: 2}
+    - target: {fileID: 1899963106340754770, guid: 36c0a49d59c699147ae63d3dc73185a1, type: 3}
       propertyPath: m_Offset.x
       value: -0.001868248
       objectReference: {fileID: 0}
@@ -919,6 +923,10 @@ PrefabInstance:
       value: 0.66946566
       objectReference: {fileID: 0}
     - target: {fileID: 1899963106340754770, guid: 36c0a49d59c699147ae63d3dc73185a1, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 4e5c317ebf8137b4aaaa0b1f368f7452, type: 2}
+    - target: {fileID: 1899963106340754770, guid: 36c0a49d59c699147ae63d3dc73185a1, type: 3}
       propertyPath: m_Offset.x
       value: 0.040029705
       objectReference: {fileID: 0}
@@ -1008,6 +1016,10 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 0.7757038
       objectReference: {fileID: 0}
+    - target: {fileID: 4369680680831732096, guid: 7412b61b36552fe499f186789dc91d65, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 4e5c317ebf8137b4aaaa0b1f368f7452, type: 2}
     - target: {fileID: 4369680680831732096, guid: 7412b61b36552fe499f186789dc91d65, type: 3}
       propertyPath: m_Offset.x
       value: -0.008003175

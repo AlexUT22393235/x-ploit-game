@@ -758,7 +758,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Snowy
   life: 100
-  fireballPrefab: {fileID: 23796450}
 --- !u!114 &152135020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1293,8 +1292,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c6fcce04b96b6248af7b7d5d6854deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PinguinoDistance
-  edgeSensor: {fileID: 0}
-  iceSpikePrefab: {fileID: 1258834124}
 --- !u!61 &461667981
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1457,7 +1454,7 @@ Transform:
   m_GameObject: {fileID: 461667979}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.634, y: -0.62, z: 0}
+  m_LocalPosition: {x: 3.61, y: -0.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1558,7 +1555,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &603752251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1571,7 +1568,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c4b12c809d901443968da92a9da52ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PinguinoMelee
-  edgeSensor: {fileID: 1679384194}
 --- !u!61 &603752252
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1734,7 +1730,7 @@ Transform:
   m_GameObject: {fileID: 603752250}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.791, y: -0.109, z: 0}
+  m_LocalPosition: {x: 0.47, y: -0.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2721,7 +2717,7 @@ Transform:
   m_GameObject: {fileID: 1189380545}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.107, y: -0.648, z: 0}
+  m_LocalPosition: {x: -1.57, y: -0.648, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3195,7 +3191,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Snowy
   life: 100
-  fireballPrefab: {fileID: 23796450}
 --- !u!114 &1541792164
 MonoBehaviour:
   m_ObjectHideFlags: 0

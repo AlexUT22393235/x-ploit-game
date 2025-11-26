@@ -2,20 +2,29 @@ using UnityEngine;
 
 public class PinguinoDistance : Enemy
 {
-    public GameObject iceSpikePrefab;
+    private GameObject iceSpikePrefab;
 
     private float velocityIceSpike = 3f;
 
-    public override void Start()
+    protected override void Start()
     {
         base.Start();
+
+        iceSpikePrefab = GameObject.Find("Ice spike");
+
+        if (iceSpikePrefab == null)
+        {
+            Debug.LogError("¡No se encontró el objeto 'Ice spike' en la escena!");
+        }
 
         life = 30;
         attackRange = 3f;
         pointsOnDefeat = 25;
+
+        edgeSensor = null;
     }
 
-    public override void Update()
+    protected override void Update()
     {
         if (playerComponent == null)
         {
@@ -50,13 +59,13 @@ public class PinguinoDistance : Enemy
         SetAnimationStates(onWalk, onAttack, onDamage);
     }
 
-    public override void SetAnimationStates(bool walk, bool attack, bool damage)
+    protected override void SetAnimationStates(bool walk, bool attack, bool damage)
     {
         animator.SetBool("Attack", attack);
         animator.SetBool("Damage", damage);
     }
 
-    public override void OnAttack()
+    protected override void OnAttack()
     {
         base.OnAttack();
 
