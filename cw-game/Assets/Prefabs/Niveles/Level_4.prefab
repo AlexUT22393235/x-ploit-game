@@ -259,6 +259,8 @@ Transform:
   - {fileID: 7099496214731789941}
   - {fileID: 1280349878658810732}
   - {fileID: 7350803015745758424}
+  - {fileID: 7837058085990605579}
+  - {fileID: 1150890381130832028}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3650258345587163984
@@ -273,7 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b63f77cace45de5479087765594d16be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelChunk
-  height: 2
+  height: 2.9
   optionalObjects: []
   movingPlatforms: []
 --- !u!1 &5133620479452184072
@@ -712,13 +714,74 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a9be51bbf7f24e479cadb79723f67a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimedPlatform
-  activeTime: 4
-  inactiveTime: 2
-  startDelay: 4
+  fallDelay: 1
+  respawnTime: 3
 --- !u!4 &4252950432712643049 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4268293110801513887, guid: 36c0a49d59c699147ae63d3dc73185a1, type: 3}
   m_PrefabInstance: {fileID: 16191523787664502}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &574361893338263783
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3229305066211029816}
+    m_Modifications:
+    - target: {fileID: 1339181227758557231, guid: f428c9bb1a962214bbe62523e37f62ca, type: 3}
+      propertyPath: m_Name
+      value: Pinguino distance (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7726586894206637036, guid: f428c9bb1a962214bbe62523e37f62ca, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.9401838
+      objectReference: {fileID: 0}
+    - target: {fileID: 7726586894206637036, guid: f428c9bb1a962214bbe62523e37f62ca, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.86957884
+      objectReference: {fileID: 0}
+    - target: {fileID: 7726586894206637036, guid: f428c9bb1a962214bbe62523e37f62ca, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7726586894206637036, guid: f428c9bb1a962214bbe62523e37f62ca, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7726586894206637036, guid: f428c9bb1a962214bbe62523e37f62ca, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7726586894206637036, guid: f428c9bb1a962214bbe62523e37f62ca, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7726586894206637036, guid: f428c9bb1a962214bbe62523e37f62ca, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7726586894206637036, guid: f428c9bb1a962214bbe62523e37f62ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7726586894206637036, guid: f428c9bb1a962214bbe62523e37f62ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7726586894206637036, guid: f428c9bb1a962214bbe62523e37f62ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f428c9bb1a962214bbe62523e37f62ca, type: 3}
+--- !u!4 &7837058085990605579 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7726586894206637036, guid: f428c9bb1a962214bbe62523e37f62ca, type: 3}
+  m_PrefabInstance: {fileID: 574361893338263783}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3258574398456651417
 PrefabInstance:
@@ -825,9 +888,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a9be51bbf7f24e479cadb79723f67a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimedPlatform
-  activeTime: 4
-  inactiveTime: 2
-  startDelay: 4
+  fallDelay: 1
+  respawnTime: 3
 --- !u!4 &1586619325809353478 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4268293110801513887, guid: 36c0a49d59c699147ae63d3dc73185a1, type: 3}
@@ -930,9 +992,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a9be51bbf7f24e479cadb79723f67a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimedPlatform
-  activeTime: 4
-  inactiveTime: 2
-  startDelay: 4
+  fallDelay: 1
+  respawnTime: 3
 --- !u!4 &1502018528278645532 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4268293110801513887, guid: 36c0a49d59c699147ae63d3dc73185a1, type: 3}
@@ -1046,9 +1107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a9be51bbf7f24e479cadb79723f67a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimedPlatform
-  activeTime: 2
-  inactiveTime: 2
-  startDelay: 0
+  fallDelay: 1
+  respawnTime: 3
 --- !u!114 &6812685172038767257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1061,9 +1121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a9be51bbf7f24e479cadb79723f67a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimedPlatform
-  activeTime: 4
-  inactiveTime: 2
-  startDelay: 4
+  fallDelay: 1
+  respawnTime: 3
 --- !u!4 &5459906478883528480 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8554699184753916573, guid: 7412b61b36552fe499f186789dc91d65, type: 3}
@@ -1170,6 +1229,68 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6553157321151316882, guid: 5c894f5c3cf93104aaa188af1b901d1b, type: 3}
   m_PrefabInstance: {fileID: 5485511131922627768}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5613441382699999775
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3229305066211029816}
+    m_Modifications:
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.2629087
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.3499775
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6996511787331287234, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_Name
+      value: Pinguino melee
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+--- !u!4 &1150890381130832028 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+  m_PrefabInstance: {fileID: 5613441382699999775}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7393262488432753270
 PrefabInstance:
