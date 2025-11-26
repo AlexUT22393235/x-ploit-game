@@ -9,12 +9,12 @@ public class Enemy : MonoBehaviour
     protected Vector2 movement;
     protected Animator animator;
 
-    protected float detectionRange = 3f;
-    private float speed = .75f;
+    protected float detectionRange = 2.1f;
+    private float speed = .5f;
     protected int damage = 5;
     protected int lastDirection = 1;
-    private float damageCooldown = .5f;
-    private float lastDamageTime = 0f;
+    // private float damageCooldown = .5f;
+    // private float lastDamageTime = 0f;
     protected float attackDelay = 1.5f;
     protected int pointsOnDefeat = 50;
 
@@ -101,27 +101,26 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    protected virtual void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Player"))
-        {
-            playerComponent.TakeDamage(damage);
-        }
-    }
+    // protected virtual void OnCollisionEnter2D(Collision2D collision)
+    // {
+    //     if (collision.collider.CompareTag("Player"))
+    //     {
+    //         playerComponent.TakeDamage(damage);
+    //     }
+    // }
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Player"))
-        {
-            if (Time.time >= lastDamageTime + damageCooldown)
-            {
-                playerComponent.TakeDamage(damage);
+    // private void OnCollisionStay2D(Collision2D collision)
+    // {
+    //     if (collision.collider.CompareTag("Player"))
+    //     {
+    //         if (Time.time >= lastDamageTime + damageCooldown)
+    //         {
+    //             playerComponent.TakeDamage(damage);
 
-                lastDamageTime = Time.time;
-            }
-        }
-    }
-
+    //             lastDamageTime = Time.time;
+    //         }
+    //     }
+    // }
     protected virtual void SetAnimationStates(bool walk, bool attack, bool damage)
     {
         animator.SetBool("Walk", walk);

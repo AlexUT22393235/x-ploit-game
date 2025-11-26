@@ -47,17 +47,19 @@ public class PinguinoMelee : Enemy
                 onDash = true;
                 AudioManager.instance.PlayPinMeleeDash();
                 hasDashed = true;
-                onWalk = false;
                 onAttack = false;
+                onWalk = false;
             }
 
             else if (!onDash && !onAttack)
             {
                 onWalk = true;
+                onAttack = false;
             }
 
             if (!platformAhead)
             {
+                onAttack = false;
                 onWalk = false;
                 movement = Vector2.zero;
             }
@@ -80,7 +82,7 @@ public class PinguinoMelee : Enemy
         }
     }
 
-    protected override void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (onDash && !damageDealt)
         {
