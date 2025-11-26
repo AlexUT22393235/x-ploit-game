@@ -428,7 +428,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 4e5c317ebf8137b4aaaa0b1f368f7452, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -827,6 +827,10 @@ PrefabInstance:
       value: 4.41921
       objectReference: {fileID: 0}
     - target: {fileID: 8178505419354098723, guid: 5c894f5c3cf93104aaa188af1b901d1b, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 4e5c317ebf8137b4aaaa0b1f368f7452, type: 2}
+    - target: {fileID: 8178505419354098723, guid: 5c894f5c3cf93104aaa188af1b901d1b, type: 3}
       propertyPath: m_Offset.x
       value: -0.009085894
       objectReference: {fileID: 0}
@@ -922,6 +926,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4715481718865810879}
     m_Modifications:
+    - target: {fileID: 849700405173800669, guid: fe03c759d422b064fb858ee3fbd22342, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 4e5c317ebf8137b4aaaa0b1f368f7452, type: 2}
     - target: {fileID: 4064699764050398857, guid: fe03c759d422b064fb858ee3fbd22342, type: 3}
       propertyPath: m_Name
       value: Plataform
@@ -996,6 +1004,10 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 0.5749999
       objectReference: {fileID: 0}
+    - target: {fileID: 1899963106340754770, guid: 36c0a49d59c699147ae63d3dc73185a1, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 82071045bd70b094286f3254a486e0a4, type: 2}
     - target: {fileID: 1899963106340754770, guid: 36c0a49d59c699147ae63d3dc73185a1, type: 3}
       propertyPath: m_Offset.x
       value: 0.008205518
@@ -1108,6 +1120,10 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 0.5749999
       objectReference: {fileID: 0}
+    - target: {fileID: 1899963106340754770, guid: 36c0a49d59c699147ae63d3dc73185a1, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 4e5c317ebf8137b4aaaa0b1f368f7452, type: 2}
     - target: {fileID: 1899963106340754770, guid: 36c0a49d59c699147ae63d3dc73185a1, type: 3}
       propertyPath: m_Offset.x
       value: 0.008205518
