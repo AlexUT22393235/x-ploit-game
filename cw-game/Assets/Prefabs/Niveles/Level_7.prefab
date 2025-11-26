@@ -33,6 +33,8 @@ Transform:
   - {fileID: 3676307832027667083}
   - {fileID: 3238465975227670131}
   - {fileID: 1769619792440645823}
+  - {fileID: 3191057175726342313}
+  - {fileID: 5901403541515839867}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1660532670913677058
@@ -47,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b63f77cace45de5479087765594d16be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelChunk
-  height: 2
+  height: 2.9
   optionalObjects: []
   movingPlatforms: []
 --- !u!1 &728383397979401543
@@ -604,6 +606,72 @@ Transform:
   - {fileID: 2455540181511616883}
   m_Father: {fileID: 1655940364019535827}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1439960864880890872
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1655940364019535827}
+    m_Modifications:
+    - target: {fileID: 3176826025801140184, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.7289227
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.9142828
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6996511787331287234, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_Name
+      value: Pinguino melee (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+--- !u!4 &5901403541515839867 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+  m_PrefabInstance: {fileID: 1439960864880890872}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2315133332876517737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1123,4 +1191,66 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4958839122772586287, guid: 10cc87a7d44671e41bbc66690d78f313, type: 3}
   m_PrefabInstance: {fileID: 7451641713155777444}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7950773219011164714
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1655940364019535827}
+    m_Modifications:
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6996511787331287234, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+      propertyPath: m_Name
+      value: Pinguino melee
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+--- !u!4 &3191057175726342313 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
+  m_PrefabInstance: {fileID: 7950773219011164714}
   m_PrefabAsset: {fileID: 0}
