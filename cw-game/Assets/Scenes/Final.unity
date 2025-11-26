@@ -1023,7 +1023,7 @@ MonoBehaviour:
         de esta Torre Helada."
       characterSprite: {fileID: 4138637606396788614, guid: aba47d48fdb12fc4cba357c1bdc14885, type: 3}
       position: 0
-    - speakerName: Noc
+    - speakerName: Jomi
       dialogueText: "S\xED, Snowy. Pero siento... una presencia. Este lugar est\xE1
         extra\xF1amente tranquilo."
       characterSprite: {fileID: -1794240728052684083, guid: 6516d3aee6df5794192570307ebe32be, type: 3}
@@ -1046,7 +1046,7 @@ MonoBehaviour:
         cada golpe que diste, me ayud\xF3 a calibrar la energ\xEDa del n\xFAcleo."
       characterSprite: {fileID: -7878594197846989753, guid: 8e9083b973af60346b1d70679c696198, type: 3}
       position: 1
-    - speakerName: Noc
+    - speakerName: Jomi
       dialogueText: "\xA1No! \xBFToda nuestra lucha fue una herramienta para sus
         planes?"
       characterSprite: {fileID: -1794240728052684083, guid: 6516d3aee6df5794192570307ebe32be, type: 3}
