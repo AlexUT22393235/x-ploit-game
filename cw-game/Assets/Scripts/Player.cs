@@ -148,10 +148,12 @@ public class Player : MonoBehaviour
 
     private void OnDash(InputAction.CallbackContext context)
     {
+        Debug.Log("OnDash llamado");
         if (die) return;
+        Debug.Log("Esta en piso: " + isGrounded);
         if (context.performed && isGrounded)
         {
-            // Debug.Log("Haciendo dash");
+            Debug.Log("Haciendo dash");
             onDash = true;
             AudioManager.instance.PlayProtaDash();
             rb.AddForce(direction.normalized * force, ForceMode2D.Impulse);
@@ -160,9 +162,12 @@ public class Player : MonoBehaviour
 
     private void OnAttack(InputAction.CallbackContext context)
     {
+        Debug.Log("OnAttack llamado");
         if (die) return;
+        Debug.Log("Esta en piso: " + isGrounded);
         if (context.performed && !attacking && isGrounded)
         {
+            Debug.Log("Haciendo ataque");
             attacking = true;
             PlayAttackSound();
             AudioManager.instance.PlayWarriorAttack();
@@ -183,7 +188,7 @@ public class Player : MonoBehaviour
         // Debug.Log(gameObject.name + " ha recibido " + damageAmount + " de daño. Vida restante: " + life);
 
         onDamage = true;
-         AudioManager.instance.PlayProtaDamage();
+        AudioManager.instance.PlayProtaDamage();
 
         if (life <= 0)
         {

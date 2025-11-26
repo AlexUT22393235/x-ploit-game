@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6301786423605169592}
   - component: {fileID: 7678284818167940420}
   - component: {fileID: 3109358845795222004}
-  - component: {fileID: 8353191549702660793}
   m_Layer: 0
   m_Name: WaterFloor
   m_TagString: Untagged
@@ -107,18 +106,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8353191549702660793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4399809492113864761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19987748d5aa2b7498c504e23190aadb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DeathZone
 --- !u!1001 &8447881734678321835
 PrefabInstance:
   m_ObjectHideFlags: 0

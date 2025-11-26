@@ -138,6 +138,7 @@ public class Boss : MonoBehaviour
         if (Score.Instance != null)
         {
             Score.Instance.AddPoints(pointsOnDefeat);
+            GameManager.Instance?.PlayerWon();
         }
     }
 }
