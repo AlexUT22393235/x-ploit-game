@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
@@ -9,12 +10,11 @@ public class Enemy : MonoBehaviour
     protected Vector2 movement;
     protected Animator animator;
 
-    protected float detectionRange = 2.1f;
-    private float speed = .5f;
+    protected float detectionRange = 2f;
+    // CAMBIO: speed ahora es protected para poder ponerlo en 0 en el pingüino de distancia
+    protected float speed = .5f;
     protected int damage = 5;
     protected int lastDirection = 1;
-    // private float damageCooldown = .5f;
-    // private float lastDamageTime = 0f;
     protected float attackDelay = 1.5f;
     protected int pointsOnDefeat = 50;
 
@@ -27,62 +27,73 @@ public class Enemy : MonoBehaviour
     protected bool onDamage = false;
     private bool die = false;
 
-    protected virtual void Start()
+    protected virtual IEnumerator Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        edgeSensor = GetComponentInChildren<EdgeSensor>();
+        edgeSensor = GetComponentInChildren<EdgeSensor>(); // Ojo: PinguinoDistance no tiene edgeSensor a veces
 
-        FindPlayer();
-        nextAttackTime = Time.time;
+        yield return null;
+
+        playerComponent = FindFirstObjectByType<Player>();
+
+        if (playerComponent != null)
+        {
+            playerTransform = playerComponent.transform;
+
+            // Inicializamos el tiempo de ataque SOLO cuando encontramos al jugador
+            nextAttackTime = Time.time;
+
+            // (Opcional) Debug para saber que ya lo enganchó
+            // Debug.Log($"Enemigo {gameObject.name} encontró al Player.");
+        }
+        else
+        {
+            // 3. Si falla, esperamos 0.5 segundos y reiniciamos el proceso
+            // Debug.LogWarning($"Enemigo {gameObject.name} no encuentra al Player, reintentando...");
+            yield return new WaitForSeconds(0.5f);
+            StartCoroutine(Start());
+        }
     }
 
     protected virtual void Update()
     {
-        if (playerComponent == null)
-        {
-            SetAnimationStates(false, false, false);
-            return;
-        }
-
-        bool platformAhead = edgeSensor.IsPlatformAhead;
+        if (playerComponent == null) { SetAnimationStates(false, false, false); return; }
 
         float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
         Vector2 direction = (playerTransform.position - transform.position).normalized;
 
         if (distanceToPlayer <= detectionRange)
         {
-            if (direction.x < 0)
-            {
-                transform.localScale = new Vector3(1, 1, 1);
-                lastDirection = -1;
-            }
+            HandleOrientation(direction.x);
 
-            else if (direction.x > 0)
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-                lastDirection = 1;
-            }
-
+            // --- LÓGICA CENTRALIZADA DE ATAQUE ---
+            // Si estamos en rango Y ya pasó el tiempo de espera Y no estamos atacando ya
             if (distanceToPlayer <= attackRange)
             {
                 onWalk = false;
                 movement = Vector2.zero;
-            }
 
-            else if (!onAttack)
+                if (Time.time >= nextAttackTime && !onAttack)
+                {
+                    onAttack = true;
+                    // IMPORTANTE: NO reseteamos nextAttackTime aquí. 
+                    // Se resetea en OnAttack() cuando se ejecuta el golpe real.
+                }
+            }
+            else if (!onAttack) // Si no está atacando, persigue
             {
                 onWalk = true;
                 movement = new Vector2(direction.x, 0);
             }
 
-            if (!platformAhead)
+            // Chequeo de bordes (solo si tiene sensor)
+            if (edgeSensor != null && !edgeSensor.IsPlatformAhead)
             {
                 onWalk = false;
                 movement = Vector2.zero;
             }
         }
-
         else
         {
             movement = Vector2.zero;
@@ -92,35 +103,20 @@ public class Enemy : MonoBehaviour
         SetAnimationStates(onWalk, onAttack, onDamage);
     }
 
+    protected void HandleOrientation(float xDir)
+    {
+        if (xDir < 0) { transform.localScale = new Vector3(1, 1, 1); lastDirection = -1; }
+        else if (xDir > 0) { transform.localScale = new Vector3(-1, 1, 1); lastDirection = 1; }
+    }
+
     protected virtual void FixedUpdate()
     {
-        if (onWalk)
+        if (onWalk && !onAttack && !die)
         {
             rb.linearVelocity = new Vector2(movement.x * speed, rb.linearVelocity.y);
-            // rb.MovePosition(rb.position + movement * speed * Time.deltaTime);
         }
     }
 
-    // protected virtual void OnCollisionEnter2D(Collision2D collision)
-    // {
-    //     if (collision.collider.CompareTag("Player"))
-    //     {
-    //         playerComponent.TakeDamage(damage);
-    //     }
-    // }
-
-    // private void OnCollisionStay2D(Collision2D collision)
-    // {
-    //     if (collision.collider.CompareTag("Player"))
-    //     {
-    //         if (Time.time >= lastDamageTime + damageCooldown)
-    //         {
-    //             playerComponent.TakeDamage(damage);
-
-    //             lastDamageTime = Time.time;
-    //         }
-    //     }
-    // }
     protected virtual void SetAnimationStates(bool walk, bool attack, bool damage)
     {
         animator.SetBool("Walk", walk);
@@ -128,56 +124,33 @@ public class Enemy : MonoBehaviour
         animator.SetBool("Damage", damage);
     }
 
-    private void FindPlayer()
-    {
-        playerComponent = FindFirstObjectByType<Player>();
-
-        if (playerComponent != null)
-        {
-            playerTransform = playerComponent.transform;
-        }
-        else
-        {
-            Debug.LogError("Enemigo: No se encontró ningún objeto con el componente Player en la escena.");
-        }
-    }
+    // private void FindPlayer()
+    // {
+    //     playerComponent = FindFirstObjectByType<Player>();
+    //     if (playerComponent != null) playerTransform = playerComponent.transform;
+    // }
 
     public virtual void TakeDamage(int damageAmount)
     {
-        // Debug.Log(gameObject.name + " ha recibido " + damageAmount + " de daño. Vida restante: " + life);
         life -= damageAmount;
-
         onDamage = true;
-
-        if (life <= 0)
-        {
-            die = true;
-            animator.SetBool("Die", die);
-        }
+        if (life <= 0) { die = true; animator.SetBool("Die", die); }
     }
 
+    // Este método se debe llamar desde un EVENTO DE ANIMACIÓN en Unity
     protected virtual void OnAttack()
     {
-        // Debug.Log("Realizando ataque.");
+        // AQUÍ es donde reiniciamos el reloj. 
+        // Solo cuenta el cooldown una vez que el golpe sale.
         nextAttackTime = Time.time + attackDelay;
     }
 
-    private void DisableAttack()
-    {
-        onAttack = false;
-    }
-
-    private void DisableDamage()
-    {
-        onDamage = false;
-    }
+    private void DisableAttack() { onAttack = false; }
+    private void DisableDamage() { onDamage = false; }
 
     private void Die()
     {
         Destroy(gameObject);
-        if (Score.Instance != null)
-        {
-            Score.Instance.AddPoints(pointsOnDefeat);
-        }
+        if (Score.Instance != null) Score.Instance.AddPoints(pointsOnDefeat);
     }
 }

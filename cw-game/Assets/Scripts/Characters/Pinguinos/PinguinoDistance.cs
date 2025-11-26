@@ -1,93 +1,48 @@
 using UnityEngine;
+using System.Collections;
 
 public class PinguinoDistance : Enemy
 {
     private GameObject iceSpikePrefab;
-
     private float velocityIceSpike = 3f;
 
-    protected override void Start()
+    protected override IEnumerator Start()
     {
-        base.Start();
+        yield return StartCoroutine(base.Start());
+        
+        // Configuraciones específicas
+        life = 30;
+        attackRange = 5f; // Aumenté un poco el rango para que dispare de lejos
+        pointsOnDefeat = 25;
+        speed = 0f; // TRUCO: Al poner velocidad 0, base.Update() gestiona la IA pero no lo mueve.
+        
+        // EdgeSensor no es necesario si no se mueve
+        edgeSensor = null; 
 
         iceSpikePrefab = GameObject.Find("Ice spike");
-
-        if (iceSpikePrefab == null)
-        {
-            Debug.LogError("¡No se encontró el objeto 'Ice spike' en la escena!");
-        }
-
-        life = 30;
-        attackRange = 3f;
-        pointsOnDefeat = 25;
-
-        edgeSensor = null;
-
-        Vector2 direction = (playerTransform.position - transform.position).normalized;
-
-        if (direction.x < 0)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
-
-        else if (direction.x > 0)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
+        if (iceSpikePrefab == null) Debug.LogError("¡No se encontró 'Ice spike'!");
     }
 
-    protected override void Update()
-    {
-        if (playerComponent == null)
-        {
-            SetAnimationStates(false, false, false);
-            return;
-        }
-        
-        float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
-        Vector2 direction = (playerTransform.position - transform.position).normalized;
-
-        if (direction.x < 0)
-            {
-                transform.localScale = new Vector3(1, 1, 1);
-                lastDirection = -1;
-            }
-            
-            else if (direction.x > 0)
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-                lastDirection = 1;
-            }
-
-        if (distanceToPlayer <= attackRange && Time.time >= nextAttackTime)
-        {
-            onAttack = true;
-        }
-        else
-        {
-            onAttack = false;
-        }
-
-        SetAnimationStates(onWalk, onAttack, onDamage);
-    }
-
-    protected override void SetAnimationStates(bool walk, bool attack, bool damage)
-    {
-        animator.SetBool("Attack", attack);
-        animator.SetBool("Damage", damage);
-    }
-
+    // NO NECESITAS OVERRIDE DE UPDATE
+    // base.Update() ya hace: Mirar al jugador, Checar Cooldown, Activar bool Attack.
+    
+    // Solo necesitamos definir QUÉ pasa cuando ataca
     protected override void OnAttack()
     {
-        base.OnAttack();
+        // Llamamos al padre para resetear el reloj (nextAttackTime)
+        base.OnAttack(); 
 
         Vector3 spawnOffset = new Vector3(.12f * lastDirection, 0.1f, 0f);
+        // Instancia el prefab (asegúrate que iceSpikePrefab sea un PREFAB y no un objeto de la escena si quieres instanciar varios)
         GameObject nuevoProyectil = Instantiate(iceSpikePrefab, transform.position + spawnOffset, transform.rotation);
-        Rigidbody2D rb = nuevoProyectil.GetComponent<Rigidbody2D>();
+        
+        // Ajustes del proyectil
+        nuevoProyectil.SetActive(true); // Por si el prefab original estaba desactivado
+        Rigidbody2D rbP = nuevoProyectil.GetComponent<Rigidbody2D>();
 
-        if (rb != null)
+        if (rbP != null)
         {
-            rb.linearVelocity = new Vector2(lastDirection < 0 ? -velocityIceSpike : velocityIceSpike, 0f);
+            rbP.linearVelocity = new Vector2(lastDirection * velocityIceSpike, 0f);
             AudioManager.instance.PlayPinDisAtack();
         }
     }
