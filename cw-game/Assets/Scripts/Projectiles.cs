@@ -4,16 +4,14 @@ public class Projectiles : MonoBehaviour
 {
     protected int damageAmount = 10;
 
-    protected Animator animator;
-    protected Player playerComponent;
-    protected Transform playerTransform;
+    private Animator animator;
+    private Player playerComponent;
+    private Transform playerTransform;
 
     protected bool onDestroy = false;
-
     protected bool hasCollided = false;
 
-
-    public virtual void Start()
+    protected virtual void Start()
     {
         FindPlayer();
 
@@ -31,12 +29,12 @@ public class Projectiles : MonoBehaviour
         }
     }
 
-    public virtual void Update()
+    protected virtual void Update()
     {
         animator.SetBool("Destroy", onDestroy);
     }
 
-    public virtual void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         // Debug.Log("The projectile collided with " + collision.gameObject.name);
 
@@ -54,13 +52,13 @@ public class Projectiles : MonoBehaviour
         {
             playerTransform = playerComponent.transform;
         }
-        else
-        {
-            // Debug.LogError("Enemigo: No se encontró ningún objeto con el componente Player en la escena.");
-        }
+        // else
+        // {
+        //     // Debug.LogError("Enemigo: No se encontró ningún objeto con el componente Player en la escena.");
+        // }
     }
 
-    protected virtual void DestroyProjectile()
+    private void DestroyProjectile()
     {
         Destroy(gameObject);
     }

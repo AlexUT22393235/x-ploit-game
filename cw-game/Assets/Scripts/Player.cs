@@ -3,35 +3,35 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    protected float speed = 1f;
-    protected float force = 180f;
+    private float speed = 1f;
+    private float force = 180f;
     public int life = 100;
-    protected int jumps = 0;
+    private int jumps = 0;
     protected int lastDirection = 1;
 
-    protected bool isGrounded = false;
-    protected bool jumping = false;
-    protected bool onDash = false;
-    protected bool attacking = false;
-    protected bool onDamage = false;
-    protected bool die = false;
+    private bool isGrounded = false;
+    private bool jumping = false;
+    private bool onDash = false;
+    private bool attacking = false;
+    private bool onDamage = false;
+    private bool die = false;
 
-    protected Vector2 direction;
-    protected Rigidbody2D rb;
-    protected Animator animator;
+    private Vector2 direction;
+    private Rigidbody2D rb;
+    private Animator animator;
 
-    public virtual void Start()
+    protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        
-        if (GameManager.Instance == null)
-        {
-            Debug.LogError("No se encontró una instancia de GameManager en la escena. Asegúrate de tener uno.");
-        }
+
+        // if (GameManager.Instance == null)
+        // {
+        //     Debug.LogError("No se encontró una instancia de GameManager en la escena. Asegúrate de tener uno.");
+        // }
     }
 
-    public virtual void Update()
+    protected virtual void Update()
     {
         if (die)
         {
@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
             SetAnimationStates(0, false, false, false, false);
             return;
         }
-        
+
         transform.Translate(direction * speed * Time.deltaTime);
 
         if (direction.x < 0)
@@ -60,16 +60,44 @@ public class Player : MonoBehaviour
         SetAnimationStates(direction.magnitude, jumping, attacking, onDash, onDamage);
     }
 
-    public virtual void OnCollisionEnter2D(Collision2D collision)
+    // protected virtual void OnCollisionEnter2D(Collision2D collision)
+    // {
+    //     if (collision.collider.CompareTag("Floor") || collision.collider.CompareTag("Enemy"))
+    //     {
+    //         isGrounded = true;
+    //         jumping = false;
+    //     }
+    // }
+
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
+        // Solo detectamos suelo si la etiqueta es correcta
         if (collision.collider.CompareTag("Floor") || collision.collider.CompareTag("Enemy"))
         {
-            isGrounded = true;
-            jumping = false;
+            // Recorremos los puntos de contacto para ver la dirección del golpe
+            foreach (ContactPoint2D contact in collision.contacts)
+            {
+                // Si la normal apunta hacia arriba (aprox), significa que pisamos algo
+                if (contact.normal.y > 0.5f)
+                {
+                    isGrounded = true;
+                    jumping = false;
+                    jumps = 0; // Es buena práctica resetearlo aquí también visualmente
+                    break; // Ya encontramos suelo, dejamos de buscar
+                }
+            }
         }
     }
 
-    public virtual void SetAnimationStates(float speed, bool jump, bool attack, bool dash, bool damage)
+    protected virtual void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Floor") || collision.collider.CompareTag("Enemy"))
+        {
+            isGrounded = false;
+        }
+    }
+
+    private void SetAnimationStates(float speed, bool jump, bool attack, bool dash, bool damage)
     {
         animator.SetFloat("Speed", speed);
         animator.SetBool("Jump", jump);
@@ -78,13 +106,13 @@ public class Player : MonoBehaviour
         animator.SetBool("Damage", damage);
     }
 
-    protected virtual void OnMove(InputAction.CallbackContext context)
+    private void OnMove(InputAction.CallbackContext context)
     {
         if (die) return;
         direction = context.ReadValue<Vector2>();
     }
 
-    protected virtual void OnJump(InputAction.CallbackContext context)
+    private void OnJump(InputAction.CallbackContext context)
     {
         if (die) return;
         if (context.performed)
@@ -118,21 +146,21 @@ public class Player : MonoBehaviour
         }
     }
 
-    protected virtual void OnDash(InputAction.CallbackContext context)
+    private void OnDash(InputAction.CallbackContext context)
     {
-        if(die) return;
+        if (die) return;
         if (context.performed && isGrounded)
         {
-            Debug.Log("Haciendo dash");
+            // Debug.Log("Haciendo dash");
             onDash = true;
             // AudioManager.instance.PlayProtaDash();
             rb.AddForce(direction.normalized * force, ForceMode2D.Impulse);
         }
     }
 
-    protected virtual void OnAttack(InputAction.CallbackContext context)
+    private void OnAttack(InputAction.CallbackContext context)
     {
-        if(die) return;
+        if (die) return;
         if (context.performed && !attacking && isGrounded)
         {
             attacking = true;
@@ -150,9 +178,9 @@ public class Player : MonoBehaviour
     public virtual void TakeDamage(int damageAmount)
     {
         if (die) return;
-        
+
         life -= damageAmount;
-        Debug.Log(gameObject.name + " ha recibido " + damageAmount + " de daño. Vida restante: " + life);
+        // Debug.Log(gameObject.name + " ha recibido " + damageAmount + " de daño. Vida restante: " + life);
 
         onDamage = true;
         // AudioManager.instance.PlayProtaDamage();
@@ -162,48 +190,39 @@ public class Player : MonoBehaviour
             life = 0;
             die = true;
             animator.SetBool("Die", die);
-            
+
             var inputAction = GetComponent<PlayerInput>();
             if (inputAction != null)
             {
                 inputAction.enabled = false;
             }
-            
+
             if (rb != null)
             {
                 rb.simulated = false;
             }
-            
-            // GameManager.Instance?.PlayerDied();
-              GameManager.Instance?.PlayerDied();
+
+            GameManager.Instance?.PlayerDied();
         }
     }
 
-    protected void DisableJump()
+    private void DisableJump()
     {
         jumping = false;
     }
 
-    protected void DisableDash()
+    private void DisableDash()
     {
         onDash = false;
     }
 
-    protected void DisableAttack()
+    private void DisableAttack()
     {
         attacking = false;
     }
 
-    protected void DisableDamage()
+    private void DisableDamage()
     {
         onDamage = false;
-    }
-
-    protected void Die()
-    {
-        // Se ejecuta al final de la animación de muerte (si tienes un evento de animación)
-        Debug.Log(gameObject.name + " ha muerto.");
-        // Opcional: Destruir o desactivar el GameObject aquí si ya no quieres que se vea.
-        // Destroy(gameObject);
     }
 }

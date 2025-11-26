@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public EdgeSensor edgeSensor;
+    protected EdgeSensor edgeSensor;
     protected Player playerComponent;
     protected Transform playerTransform;
     protected Rigidbody2D rb;
@@ -10,11 +10,11 @@ public class Enemy : MonoBehaviour
     protected Animator animator;
 
     protected float detectionRange = 3f;
-    protected float speed = .75f;
+    private float speed = .75f;
     protected int damage = 5;
     protected int lastDirection = 1;
-    protected float damageCooldown = .5f;
-    protected float lastDamageTime = 0f;
+    private float damageCooldown = .5f;
+    private float lastDamageTime = 0f;
     protected float attackDelay = 1.5f;
     protected int pointsOnDefeat = 50;
 
@@ -25,18 +25,19 @@ public class Enemy : MonoBehaviour
     protected bool onWalk = false;
     protected bool onAttack = false;
     protected bool onDamage = false;
-    protected bool die = false;
+    private bool die = false;
 
-    public virtual void Start()
+    protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        edgeSensor = GetComponentInChildren<EdgeSensor>();
 
         FindPlayer();
         nextAttackTime = Time.time;
     }
 
-    public virtual void Update()
+    protected virtual void Update()
     {
         if (playerComponent == null)
         {
@@ -91,7 +92,7 @@ public class Enemy : MonoBehaviour
         SetAnimationStates(onWalk, onAttack, onDamage);
     }
 
-    public virtual void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if (onWalk)
         {
@@ -100,7 +101,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public virtual void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Player"))
         {
@@ -108,7 +109,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public virtual void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Player"))
         {
@@ -121,7 +122,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public virtual void SetAnimationStates(bool walk, bool attack, bool damage)
+    protected virtual void SetAnimationStates(bool walk, bool attack, bool damage)
     {
         animator.SetBool("Walk", walk);
         animator.SetBool("Attack", attack);
@@ -144,7 +145,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void TakeDamage(int damageAmount)
     {
-        Debug.Log(gameObject.name + " ha recibido " + damageAmount + " de daño. Vida restante: " + life);
+        // Debug.Log(gameObject.name + " ha recibido " + damageAmount + " de daño. Vida restante: " + life);
         life -= damageAmount;
 
         onDamage = true;
@@ -156,23 +157,23 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public virtual void OnAttack()
+    protected virtual void OnAttack()
     {
         // Debug.Log("Realizando ataque.");
         nextAttackTime = Time.time + attackDelay;
     }
 
-    protected void DisableAttack()
+    private void DisableAttack()
     {
         onAttack = false;
     }
 
-    protected void DisableDamage()
+    private void DisableDamage()
     {
         onDamage = false;
     }
 
-    protected void Die()
+    private void Die()
     {
         Destroy(gameObject);
         if (Score.Instance != null)

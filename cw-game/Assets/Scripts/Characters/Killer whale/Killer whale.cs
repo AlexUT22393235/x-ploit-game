@@ -8,6 +8,7 @@ public class KillerWhale : Boss
     private float returnDirection = 0f;
 
     private bool onAttack = false;
+    private bool onDelay = false;
     private bool onStunned = false;
     private bool onReturn = false;
 
@@ -21,10 +22,11 @@ public class KillerWhale : Boss
             {
                 float directionToPlayer = Mathf.Sign(playerTransform.position.x - transform.position.x);
                 FlipSprite(directionToPlayer);
-                Jump();
+                DelayJump();
             }
         }
 
+        animator.SetBool("Delay", onDelay);
         animator.SetBool("Attack", onAttack);
         animator.SetBool("Stunned", onStunned);
         animator.SetBool("Return", onReturn);
@@ -38,7 +40,7 @@ public class KillerWhale : Boss
 
     protected override void FixedUpdate()
     {
-        if (onAttack || onStunned)
+        if (onDelay || onAttack || onStunned)
         {
             return;
         }
@@ -52,19 +54,22 @@ public class KillerWhale : Boss
         base.FixedUpdate();
     }
 
+    private void DelayJump()
+    {
+        if (onDelay) return;
+        rb.linearVelocity = Vector2.zero;
+        onDelay = true; 
+    }
+
     private void Jump()
     {
-        if (onAttack) return;
-
-        // Debug.Log("Orca está saltando!");
+        onDelay = false;
         float directionToPlayer = Mathf.Sign(playerTransform.position.x - transform.position.x);
         Vector2 jumpVector = new Vector2(directionToPlayer * speed * 0.5f, jumpForce);
 
-        rb.linearVelocity = Vector2.zero;
         rb.AddForce(jumpVector, ForceMode2D.Impulse);
         onAttack = true;
     }
-
     private float GetRandomDirection()
     {
         int randomValue = Random.Range(0, 2);

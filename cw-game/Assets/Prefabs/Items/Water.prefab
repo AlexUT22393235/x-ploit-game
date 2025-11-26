@@ -253,7 +253,7 @@ Transform:
   m_GameObject: {fileID: 3659434651587993993}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.52, y: -6.82, z: 0}
+  m_LocalPosition: {x: -1.52, y: -6.82, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -296,7 +296,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.6266012, y: 0.42987323}
+  m_Offset: {x: 0.6266012, y: 0.47475266}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -306,7 +306,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 9.004324, y: 0.9750247}
+  m_Size: {x: 9.004324, y: 1.0647836}
   m_EdgeRadius: 0
 --- !u!114 &2431877028584340610
 MonoBehaviour:
@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 2970515928691616232}
   - component: {fileID: 1872388461360642792}
   - component: {fileID: 4794196242845309765}
-  - component: {fileID: 9164829578948018501}
+  - component: {fileID: 4240688030068178249}
   m_Layer: 0
   m_Name: Killer whale
   m_TagString: Untagged
@@ -465,7 +465,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &9164829578948018501
+--- !u!114 &4240688030068178249
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -474,8 +474,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4981067579563199516}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8e6913b31f5f46488db0f025c33b7ab, type: 3}
+  m_Script: {fileID: 11500000, guid: 74bbfee411562424193d0626c16399ce, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AnimationkillerWhale
-  speed: 3
-  patrolDistance: 5
+  m_EditorClassIdentifier: Assembly-CSharp::Boss
+  life: 150
