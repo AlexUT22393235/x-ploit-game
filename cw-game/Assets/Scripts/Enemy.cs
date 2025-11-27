@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     protected Vector2 movement;
     protected Animator animator;
 
-    protected float detectionRange = 2f;
+    protected float detectionRange = 1.5f;
     // CAMBIO: speed ahora es protected para poder ponerlo en 0 en el pingüino de distancia
     protected float speed = .5f;
     protected int damage = 5;

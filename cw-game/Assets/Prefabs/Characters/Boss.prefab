@@ -188,6 +188,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 6301786423605169592}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3659434651587993993, guid: e1ce94c791fd3fc4c875877933d6dd17, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6200834946222071285}
     - targetCorrespondingSourceObject: {fileID: 4981067579563199516, guid: e1ce94c791fd3fc4c875877933d6dd17, type: 3}
       insertIndex: 3
       addedObject: {fileID: 3547495612363925457}
@@ -259,6 +262,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KillerWhale
   life: 150
+--- !u!1 &5184781992866839330 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3659434651587993993, guid: e1ce94c791fd3fc4c875877933d6dd17, type: 3}
+  m_PrefabInstance: {fileID: 8447881734678321835}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6200834946222071285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5184781992866839330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19987748d5aa2b7498c504e23190aadb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeathZone
 --- !u!4 &5578924287212123735 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4057943072515878140, guid: e1ce94c791fd3fc4c875877933d6dd17, type: 3}

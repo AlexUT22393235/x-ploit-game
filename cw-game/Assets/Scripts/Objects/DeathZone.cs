@@ -10,11 +10,12 @@ public class DeathZone : MonoBehaviour
         FindPlayer();
     }
 
-    private void OnCollisionTrigger(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
+        // Debug.Log("Colisión detectada con: " + other.name);
         if (other.CompareTag("Player"))
         {
-            Debug.Log("¡Te alcanzó el agua!");
+            // Debug.Log("¡Te alcanzó el agua!");
             playerComponent.TakeDamage(100);
             GameManager.Instance?.PlayerDied();
         }

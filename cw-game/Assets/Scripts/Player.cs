@@ -74,12 +74,15 @@ public class Player : MonoBehaviour
         // Solo detectamos suelo si la etiqueta es correcta
         if (collision.collider.CompareTag("Floor") || collision.collider.CompareTag("Enemy"))
         {
+            // Debug.Log("Colisión con suelo o enemigo detectada.");
             // Recorremos los puntos de contacto para ver la dirección del golpe
             foreach (ContactPoint2D contact in collision.contacts)
             {
+                // Debug.Log("Normal del contacto: " + contact.normal);
                 // Si la normal apunta hacia arriba (aprox), significa que pisamos algo
                 if (contact.normal.y > 0.5f)
                 {
+                    // Debug.Log("El jugador ha aterrizado.");
                     isGrounded = true;
                     jumping = false;
                     jumps = 0; // Es buena práctica resetearlo aquí también visualmente
@@ -117,6 +120,8 @@ public class Player : MonoBehaviour
         if (die) return;
         if (context.performed)
         {
+            // Debug.Log("OnJump llamado");
+            // Debug.Log("Esta en piso: " + isGrounded);
             if (isGrounded || jumps < 2)
             {
                 if (isGrounded)
