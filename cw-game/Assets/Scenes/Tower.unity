@@ -6084,6 +6084,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snowy wizard
       objectReference: {fileID: 0}
+    - target: {fileID: 8409210061441810867, guid: 1e92d89a6ab827340b25ebea54f1ca98, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9087023721057721410, guid: 1e92d89a6ab827340b25ebea54f1ca98, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.63
