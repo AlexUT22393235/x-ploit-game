@@ -1,15 +1,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI; // NECESARIO para usar el componente Image
+using UnityEngine.UI;
 using System.Collections; 
 
-/// <summary>
-/// Gestiona el estado del juego, la interfaz de usuario de muerte y las transiciones de escena.
-/// Usa el patrón Singleton.
-/// </summary>
 public class GameManager : MonoBehaviour
 {
-    // Singleton
     public static GameManager Instance { get; private set; }
 
     [Header("UI Objects - Muerte")]
@@ -21,26 +16,27 @@ public class GameManager : MonoBehaviour
 
     [Header("UI Objects - Victoria")]
     [Tooltip("Canvas Group del panel de Victoria/Win Screen. ¡Alpha debe ser 0 en el Editor!")]
-    public CanvasGroup winCanvasGroup; // ¡NUEVO CAMPO!
+    public CanvasGroup winCanvasGroup;
     
     [Tooltip("Componente Image del fondo de la pantalla de Victoria para animar el color.")]
-    public Image winBackgroundPanelImage; // ¡NUEVO CAMPO!
+    public Image winBackgroundPanelImage;
 
+    [Header("General UI")]
+    [Tooltip("Objeto de UI principal del juego (e.g., vida, puntuación). Se desactiva al morir.")]
+    public GameObject ui;
 
     [Header("Configuración de Animación")]
     [Tooltip("Duración en segundos de la animación de fade-in de la pantalla de Game Over.")]
     public float fadeInDuration = 1.5f;
     
-    // Colores para la animación de fondo
-    private readonly Color startFadeColor = new Color(0.5f, 0f, 0f, 1f); // Game Over: Rojo Oscuro (R:128, G:0, B:0)
-    private readonly Color endFadeColor = Color.black; // Game Over: Negro Puro
+    private readonly Color startFadeColor = new Color(0.5f, 0f, 0f, 1f);
+    private readonly Color endFadeColor = Color.black;
     
-    private readonly Color winStartFadeColor = new Color(0f, 0.5f, 0.5f, 1f); // Victoria: Azul/Verde Suave
-    private readonly Color winEndFadeColor = Color.black; // Victoria: Negro Puro
+    private readonly Color winStartFadeColor = new Color(0f, 0.5f, 0.5f, 1f);
+    private readonly Color winEndFadeColor = Color.black;
 
     private void Awake()
     {
-        // Inicialización del Singleton
         if (Instance == null)
         {
             Instance = this;
@@ -53,7 +49,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        // Inicialización de la pantalla de Muerte
         if (deathCanvasGroup != null)
         {
             deathCanvasGroup.alpha = 0f;
@@ -65,7 +60,6 @@ public class GameManager : MonoBehaviour
             backgroundPanelImage.color = endFadeColor;
         }
         
-        // Inicialización de la pantalla de Victoria
         if (winCanvasGroup != null)
         {
             winCanvasGroup.alpha = 0f;
@@ -76,22 +70,26 @@ public class GameManager : MonoBehaviour
         {
             winBackgroundPanelImage.color = winEndFadeColor;
         }
+
+        if (ui != null)
+        {
+            ui.SetActive(true);
+        }
         
         Time.timeScale = 1f;
     }
 
-    /// <summary>
-    /// Llamado por el Player cuando su vida llega a cero.
-    /// Inicia el efecto de Game Over.
-    /// </summary>
     public void PlayerDied()
     {
         Debug.Log("Game Over. Iniciando animación de fade-in y color.");
         
-        // Detener el tiempo inmediatamente para pausar la acción del juego
+        if (ui != null)
+        {
+            ui.SetActive(false);
+        }
+
         Time.timeScale = 0f;
         
-        // Iniciar la Coroutine de desvanecimiento
         if (deathCanvasGroup != null && backgroundPanelImage != null)
         {
             StartCoroutine(FadeInDeathScreen());
@@ -102,15 +100,16 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    /// <summary>
-    /// Llamado cuando el jugador completa el nivel o cumple la condición de victoria.
-    /// Inicia el efecto dAe victoria.
-    /// </summary>
-    public void PlayerWon() // ¡NUEVA FUNCIÓN!
+    public void PlayerWon()
     {
         Debug.Log("¡Victoria! Iniciando animación de fade-in y color.");
         
-        Time.timeScale = 0f; // Pausar el juego
+        if (ui != null)
+        {
+            ui.SetActive(false);
+        }
+
+        Time.timeScale = 0f;
         
         if (winCanvasGroup != null && winBackgroundPanelImage != null)
         {
@@ -122,46 +121,37 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Coroutine para animar la opacidad y el color del Game Over
     private IEnumerator FadeInDeathScreen()
     {
         float timer = 0f;
         
-        // El CanvasGroup bloquea raycasts e interacciones
         deathCanvasGroup.blocksRaycasts = true;
 
-        // Establece el color inicial de la imagen (Rojo Oscuro) antes de empezar el fade
         backgroundPanelImage.color = startFadeColor; 
 
         while (timer < fadeInDuration)
         {
-            timer += Time.unscaledDeltaTime; // Usamos unscaledDeltaTime porque Time.timeScale = 0f
+            timer += Time.unscaledDeltaTime;
             float t = timer / fadeInDuration;
             
-            // 1. Animar la Opacidad (Canvas Group Alpha: 0 -> 1)
             deathCanvasGroup.alpha = Mathf.Lerp(0f, 1f, t);
             
-            // 2. Animar el Color (Image Color: Rojo Oscuro -> Negro Puro)
             backgroundPanelImage.color = Color.Lerp(startFadeColor, endFadeColor, t);
             
-            yield return null; // Espera al siguiente frame
+            yield return null;
         }
 
-        // Asegura el estado final
         deathCanvasGroup.alpha = 1f;
         deathCanvasGroup.interactable = true;
         backgroundPanelImage.color = endFadeColor;
     }
     
-    // Coroutine para animar la opacidad y el color de la Pantalla de Victoria
-    private IEnumerator FadeInWinScreen() // ¡NUEVA COROUTINE!
+    private IEnumerator FadeInWinScreen()
     {
         float timer = 0f;
         
-        // El CanvasGroup bloquea raycasts e interacciones
         winCanvasGroup.blocksRaycasts = true;
 
-        // Establece el color inicial de la imagen (Azul/Verde) antes de empezar el fade
         winBackgroundPanelImage.color = winStartFadeColor; 
 
         while (timer < fadeInDuration)
@@ -169,25 +159,19 @@ public class GameManager : MonoBehaviour
             timer += Time.unscaledDeltaTime; 
             float t = timer / fadeInDuration;
             
-            // 1. Animar la Opacidad (Canvas Group Alpha: 0 -> 1)
             winCanvasGroup.alpha = Mathf.Lerp(0f, 1f, t);
             
-            // 2. Animar el Color (Image Color: Azul/Verde -> Negro Puro)
             winBackgroundPanelImage.color = Color.Lerp(winStartFadeColor, winEndFadeColor, t);
             
             yield return null; 
         }
 
-        // Asegura el estado final
         winCanvasGroup.alpha = 1f;
         winCanvasGroup.interactable = true;
         winBackgroundPanelImage.color = winEndFadeColor;
     }
 
 
-    /// <summary>
-    /// Reinicia la escena actual. Asignar al botón "Reiniciar".
-    /// </summary>
     public void RestartGame()
     {
         ResetStateForSceneLoad();
@@ -195,33 +179,24 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(currentSceneName);
     }
     
-    /// <summary>
-    /// Carga la siguiente escena (asumiendo que es el siguiente nivel). Asignar al botón "Siguiente Nivel".
-    /// </summary>
-    public void LoadNextLevel() // ¡NUEVA FUNCIÓN!
+    public void LoadNextLevel()
     {
         ResetStateForSceneLoad();
         
-        // Carga la siguiente escena en el orden de compilación
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex + 1);
     }
 
-    /// <summary>
-    /// Carga la escena del Menú Principal. Asignar al botón "Menú Principal".
-    /// </summary>
     public void LoadMainMenu()
     {
         ResetStateForSceneLoad();
         SceneManager.LoadScene("MainMenu"); 
     }
     
-    // Función de utilidad para restablecer el estado antes de cargar una escena.
     private void ResetStateForSceneLoad()
     {
-        Time.timeScale = 1f; // Asegura que el juego esté reanudado
+        Time.timeScale = 1f;
 
-        // Desactivar UI de Muerte
         if (deathCanvasGroup != null)
         {
             deathCanvasGroup.alpha = 0f;
@@ -233,7 +208,6 @@ public class GameManager : MonoBehaviour
             backgroundPanelImage.color = endFadeColor;
         }
         
-        // Desactivar UI de Victoria
         if (winCanvasGroup != null)
         {
             winCanvasGroup.alpha = 0f;
@@ -243,6 +217,11 @@ public class GameManager : MonoBehaviour
         if (winBackgroundPanelImage != null)
         {
             winBackgroundPanelImage.color = winEndFadeColor;
+        }
+
+        if (ui != null)
+        {
+            ui.SetActive(true);
         }
     }
 }
