@@ -5373,7 +5373,7 @@ MonoBehaviour:
   backgroundGame2: {fileID: 8300000, guid: 89d1ceb86e266db48a9eeda46524b245, type: 3}
   backgroundGame3: {fileID: 8300000, guid: c8647dc1099833143a893e762a34a19a, type: 3}
   backgroundGame4: {fileID: 8300000, guid: 43bbaa8613f550a4d8f97d2c3e4ed96a, type: 3}
-  backgroundBossBattle: {fileID: 8300000, guid: 519de02ba99706040982921a5aff6ac3, type: 3}
+  backgroundBossBattle: {fileID: 0}
   backgroundGameOver: {fileID: 8300000, guid: 579d9ee3dca8d7546a5f7d9767b55024, type: 3}
   backgroundWin: {fileID: 8300000, guid: 59ca08e4e8157e5489cbe0b58736e4c3, type: 3}
   danoioProta: {fileID: 8300000, guid: df1cbde220ed1e8429e77f4252d7d250, type: 3}
