@@ -92,13 +92,13 @@ public class Player : MonoBehaviour
         }
     }
 
-    protected virtual void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Floor") || collision.collider.CompareTag("Enemy"))
-        {
-            isGrounded = false;
-        }
-    }
+    // protected virtual void OnCollisionExit2D(Collision2D collision)
+    // {
+    //     if (collision.collider.CompareTag("Floor") || collision.collider.CompareTag("Enemy"))
+    //     {
+    //         isGrounded = false;
+    //     }
+    // }
 
     private void SetAnimationStates(float speed, bool jump, bool attack, bool dash, bool damage)
     {

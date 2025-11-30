@@ -19,7 +19,7 @@ public class Boss : MonoBehaviour
     public int life = 150;
     private int pointsOnDefeat = 100;
 
-    private bool die = false;
+    // private bool die = false;
 
     protected virtual void Start()
     {
@@ -126,7 +126,7 @@ public class Boss : MonoBehaviour
 
         if (life <= 0)
         {
-            die = true;
+            Die();
             // AudioManager.instance.PlayProtaDead();
             // animator.SetBool("Die", die);
         }

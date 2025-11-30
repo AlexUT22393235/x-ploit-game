@@ -3,6 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class RisingDeathZone : MonoBehaviour
 {
+    [Header("Configuración de Inicio")]
+    public float startDelay = 10f;      // Tiempo de espera antes de empezar (10 segundos)
+    private float delayTimer = 0f;      // Temporizador interno para el inicio
+    private bool isMoving = false;
+
     [Header("Velocidad y Progresión")]
     public float currentSpeed = 0.5f;       // Velocidad inicial (más lenta)
     public float speedIncreaseAmount = 0.2f; // Cuánto aumenta la velocidad
@@ -19,6 +24,23 @@ public class RisingDeathZone : MonoBehaviour
 
     void Update()
     {
+        if (!isMoving)
+        {
+            delayTimer += Time.deltaTime;
+
+            if (delayTimer >= startDelay)
+            {
+                isMoving = true;
+                Debug.Log("🌊 ¡El agua ha comenzado a subir!");
+            }
+            else
+            {
+                // Si aún no ha pasado el tiempo, terminamos la función aquí.
+                // El código debajo de esta línea no se ejecutará.
+                return;
+            }
+        }
+
         // 1. Mover el agua hacia arriba constantemente
         transform.Translate(Vector3.up * currentSpeed * Time.deltaTime);
 
@@ -42,7 +64,7 @@ public class RisingDeathZone : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("¡Te alcanzó el agua!");
+            // Debug.Log("¡Te alcanzó el agua!");
             playerComponent.TakeDamage(100);
             GameManager.Instance?.PlayerDied();
         }
