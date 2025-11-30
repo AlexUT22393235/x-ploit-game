@@ -20,6 +20,9 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
 
+    //Variable para almacenar el tipo de superficie actual
+    private SurfaceType currentSurface = SurfaceType.Default;
+
     protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -70,27 +73,46 @@ public class Player : MonoBehaviour
     // }
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
+{
+    // Solo detectamos suelo si la etiqueta es correcta
+    if (collision.collider.CompareTag("Floor") || collision.collider.CompareTag("Enemy"))
     {
-        // Solo detectamos suelo si la etiqueta es correcta
-        if (collision.collider.CompareTag("Floor") || collision.collider.CompareTag("Enemy"))
+        // Debug.Log("Colisión con suelo o enemigo detectada.");
+        // Recorremos los puntos de contacto para ver la dirección del golpe
+        foreach (ContactPoint2D contact in collision.contacts)
         {
-            // Debug.Log("Colisión con suelo o enemigo detectada.");
-            // Recorremos los puntos de contacto para ver la dirección del golpe
-            foreach (ContactPoint2D contact in collision.contacts)
+            // Debug.Log("Normal del contacto: " + contact.normal);
+            // Si la normal apunta hacia arriba (aprox), significa que pisamos algo
+            if (contact.normal.y > 0.5f)
             {
-                // Debug.Log("Normal del contacto: " + contact.normal);
-                // Si la normal apunta hacia arriba (aprox), significa que pisamos algo
-                if (contact.normal.y > 0.5f)
+                // Debug.Log("El jugador ha aterrizado.");
+                
+                // 1. Lógica original de movimiento
+                isGrounded = true;
+                jumping = false;
+                jumps = 0; 
+
+                // 2. NUEVA LÓGICA: Detección de Superficie
+                // Solo buscamos el componente si confirmamos que estamos pisando el objeto
+                SurfaceData surfaceInfo = collision.gameObject.GetComponent<SurfaceData>();
+
+                if (surfaceInfo != null)
                 {
-                    // Debug.Log("El jugador ha aterrizado.");
-                    isGrounded = true;
-                    jumping = false;
-                    jumps = 0; // Es buena práctica resetearlo aquí también visualmente
-                    break; // Ya encontramos suelo, dejamos de buscar
+                    // ¡Encontrado! Guardamos el tipo (Nieve, Piedra, etc.)
+                    currentSurface = surfaceInfo.surfaceType;
                 }
+                else
+                {
+                    // Si es suelo pero no tiene script, asumimos que es Default (Piedra/Genérico)
+                    currentSurface = SurfaceType.Default;
+                }
+                // ----------------------------------------------------
+
+                break; // Ya encontramos suelo, dejamos de buscar
             }
         }
     }
+}
 
     // protected virtual void OnCollisionExit2D(Collision2D collision)
     // {
@@ -100,6 +122,29 @@ public class Player : MonoBehaviour
     //     }
     // }
 
+// 3. EL SWITCH PRINCIPAL (Este método será llamado por la Animación)
+    public void PlayFootstepSound()
+    {
+        // Solo reproducimos sonido si estamos pisando el suelo.
+        // Esto evita que suene si la animación corre mientras saltamos o caemos.
+        if (isGrounded)
+        {
+            switch (currentSurface)
+            {
+                case SurfaceType.Snow:
+                    AudioManager.instance.PlayFootstepSnow();
+                    break;
+
+                case SurfaceType.Stone:
+                    AudioManager.instance.PlayFootstepStone();
+                    break;
+
+                default: // Default o cualquier caso no configurado
+                    AudioManager.instance.PlayFootstepStone(); 
+                    break;
+            }
+        }
+    }
     private void SetAnimationStates(float speed, bool jump, bool attack, bool dash, bool damage)
     {
         animator.SetFloat("Speed", speed);
