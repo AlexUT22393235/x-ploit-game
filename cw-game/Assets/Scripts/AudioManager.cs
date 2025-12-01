@@ -274,5 +274,17 @@ public class AudioManager : MonoBehaviour
         else PlaySFX(surfaceWalkStone2);
     }
 
+    public void PlayFootstepIce()
+    {
+        if (Random.value > 0.5f) PlaySFX(surfaceIceSlice1);
+        else PlaySFX(surfaceIceSlice2);
+    }
+
+    public void PlayFootstepColapsed()
+    {
+        if (Random.value > 0.5f) PlaySFX(surfaceColapsedPlatform);
+        else PlaySFX(surfaceColapsedPlatform);
+    }
+
 
 }
