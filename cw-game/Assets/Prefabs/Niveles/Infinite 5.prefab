@@ -207,7 +207,7 @@ BoxCollider2D:
   m_UsedByEffector: 1
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.009086072, y: 0}
+  m_Offset: {x: 0.0019783974, y: 0.07745178}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -217,7 +217,7 @@ BoxCollider2D:
     drawMode: 2
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.0034456, y: 0.32}
+  m_Size: {x: 4.4197054, y: 0.16509643}
   m_EdgeRadius: 0
 --- !u!251 &4245569664135471187
 PlatformEffector2D:
@@ -983,7 +983,7 @@ PrefabInstance:
       objectReference: {fileID: 854534796, guid: 30c90cf793c60d749bea442943c08586, type: 3}
     - target: {fileID: 1899963106340754770, guid: 36c0a49d59c699147ae63d3dc73185a1, type: 3}
       propertyPath: m_Size.x
-      value: 0.66946566
+      value: 0.58095014
       objectReference: {fileID: 0}
     - target: {fileID: 1899963106340754770, guid: 36c0a49d59c699147ae63d3dc73185a1, type: 3}
       propertyPath: m_Material
@@ -991,7 +991,7 @@ PrefabInstance:
       objectReference: {fileID: 6200000, guid: 4e5c317ebf8137b4aaaa0b1f368f7452, type: 2}
     - target: {fileID: 1899963106340754770, guid: 36c0a49d59c699147ae63d3dc73185a1, type: 3}
       propertyPath: m_Offset.x
-      value: 0.040029705
+      value: -0.0042280555
       objectReference: {fileID: 0}
     - target: {fileID: 1899963106340754770, guid: 36c0a49d59c699147ae63d3dc73185a1, type: 3}
       propertyPath: m_UsedByEffector
@@ -1242,6 +1242,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7960455552224671960, guid: 30c90cf793c60d749bea442943c08586, type: 3}
     - target: {fileID: 8178505419354098723, guid: 5c894f5c3cf93104aaa188af1b901d1b, type: 3}
+      propertyPath: m_Size.x
+      value: 4.4639635
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178505419354098723, guid: 5c894f5c3cf93104aaa188af1b901d1b, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.020150185
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178505419354098723, guid: 5c894f5c3cf93104aaa188af1b901d1b, type: 3}
       propertyPath: m_UsedByEffector
       value: 1
       objectReference: {fileID: 0}
@@ -1313,7 +1321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7825901386714278021, guid: f428c9bb1a962214bbe62523e37f62ca, type: 3}
       propertyPath: m_FlipX
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

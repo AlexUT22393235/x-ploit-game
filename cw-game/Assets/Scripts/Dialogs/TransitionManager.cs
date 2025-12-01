@@ -7,14 +7,14 @@ public class TransitionManager : MonoBehaviour
 {
     [Header("Configuración de Escena")]
     public string nombreEscenaBoss;
-    
+
     [Header("Configuración Visual")]
     public CanvasGroup panelNegro; // Arrastra aquí el Panel con el CanvasGroup
     public TextMeshProUGUI textoHistoria; // Arrastra aquí tu objeto de Texto
-    
+
     [Header("Narrativa")]
     [TextArea(3, 10)] // Esto hace la caja de texto más grande en el inspector
-    public string mensajeNarrativo; 
+    public string mensajeNarrativo;
 
     [Header("Tiempos")]
     public float velocidadFade = 1f; // Qué tan rápido se oscurece
@@ -30,8 +30,21 @@ public class TransitionManager : MonoBehaviour
 
     IEnumerator SecuenciaTransicion()
     {
+        Debug.Log("Iniciando secuencia de transición al Boss...");
         // 1. Asignar el texto que escribiste en el inspector
         textoHistoria.text = mensajeNarrativo;
+
+        Player playerComponent = FindFirstObjectByType<Player>();
+
+        if (playerComponent != null)
+        {
+            var inputAction = playerComponent.GetComponent<UnityEngine.InputSystem.PlayerInput>();
+
+            if (inputAction != null)
+            {
+                inputAction.enabled = false;
+            }
+        }
 
         // 2. Fade In (Hacer que aparezca el panel negro y el texto)
         float alpha = 0;
@@ -40,6 +53,16 @@ public class TransitionManager : MonoBehaviour
             alpha += Time.deltaTime * velocidadFade;
             panelNegro.alpha = alpha;
             yield return null; // Esperar al siguiente frame
+        }
+
+        if (playerComponent != null)
+        {
+            var rb = playerComponent.GetComponent<Rigidbody2D>();
+
+            if (rb != null)
+            {
+                rb.simulated = false;
+            }
         }
 
         // 3. Esperar tiempo de lectura (con la pantalla en negro y el texto)

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1899963106340754770}
   m_Layer: 3
   m_Name: Plataforma 2
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

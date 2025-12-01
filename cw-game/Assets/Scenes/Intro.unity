@@ -1058,12 +1058,12 @@ MonoBehaviour:
       characterSprite: {fileID: -1794240728052684083, guid: 6516d3aee6df5794192570307ebe32be, type: 3}
       position: 1
     - speakerName: Jomi
-      dialogueText: "Por \xFAltimo, tu ataque: usa Z para tu ataque principal (espada
+      dialogueText: "Por \xFAltimo, tu ataque: usa P para tu ataque principal (espada
         o Fireball, seg\xFAn tu rol)."
       characterSprite: {fileID: -1794240728052684083, guid: 6516d3aee6df5794192570307ebe32be, type: 3}
       position: 1
     - speakerName: Jomi
-      dialogueText: "Si necesitas velocidad, usa X para el dash. \xA1Y domina el
+      dialogueText: "Si necesitas velocidad, usa O para el dash. \xA1Y domina el
         rebote en paredes! \xA1Buena suerte, Snowy!"
       characterSprite: {fileID: -1794240728052684083, guid: 6516d3aee6df5794192570307ebe32be, type: 3}
       position: 1

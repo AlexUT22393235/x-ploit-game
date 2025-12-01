@@ -617,7 +617,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3176826025801140184, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
       propertyPath: m_FlipX
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4764310902683482755, guid: 03fc2670feee482499c3474c543e7b47, type: 3}
       propertyPath: m_LocalPosition.x
@@ -886,9 +886,17 @@ PrefabInstance:
       value: 4.440796
       objectReference: {fileID: 0}
     - target: {fileID: 8178505419354098723, guid: 5c894f5c3cf93104aaa188af1b901d1b, type: 3}
+      propertyPath: m_Size.x
+      value: 4.45195
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178505419354098723, guid: 5c894f5c3cf93104aaa188af1b901d1b, type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 82071045bd70b094286f3254a486e0a4, type: 2}
+    - target: {fileID: 8178505419354098723, guid: 5c894f5c3cf93104aaa188af1b901d1b, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.005694747
+      objectReference: {fileID: 0}
     - target: {fileID: 8178505419354098723, guid: 5c894f5c3cf93104aaa188af1b901d1b, type: 3}
       propertyPath: m_UsedByEffector
       value: 1
@@ -1041,7 +1049,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4369680680831732096, guid: 7412b61b36552fe499f186789dc91d65, type: 3}
       propertyPath: m_Size.x
-      value: 0.9246074
+      value: 0.80636215
       objectReference: {fileID: 0}
     - target: {fileID: 4369680680831732096, guid: 7412b61b36552fe499f186789dc91d65, type: 3}
       propertyPath: m_Material
@@ -1049,7 +1057,7 @@ PrefabInstance:
       objectReference: {fileID: 6200000, guid: 82071045bd70b094286f3254a486e0a4, type: 2}
     - target: {fileID: 4369680680831732096, guid: 7412b61b36552fe499f186789dc91d65, type: 3}
       propertyPath: m_Offset.x
-      value: -0.07496625
+      value: -0.01584363
       objectReference: {fileID: 0}
     - target: {fileID: 4369680680831732096, guid: 7412b61b36552fe499f186789dc91d65, type: 3}
       propertyPath: m_UsedByEffector

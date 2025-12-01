@@ -74,12 +74,15 @@ public class Player : MonoBehaviour
         // Solo detectamos suelo si la etiqueta es correcta
         if (collision.collider.CompareTag("Floor") || collision.collider.CompareTag("Enemy"))
         {
+            // Debug.Log("Colisión con suelo o enemigo detectada.");
             // Recorremos los puntos de contacto para ver la dirección del golpe
             foreach (ContactPoint2D contact in collision.contacts)
             {
+                // Debug.Log("Normal del contacto: " + contact.normal);
                 // Si la normal apunta hacia arriba (aprox), significa que pisamos algo
                 if (contact.normal.y > 0.5f)
                 {
+                    // Debug.Log("El jugador ha aterrizado.");
                     isGrounded = true;
                     jumping = false;
                     jumps = 0; // Es buena práctica resetearlo aquí también visualmente
@@ -89,13 +92,13 @@ public class Player : MonoBehaviour
         }
     }
 
-    protected virtual void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Floor") || collision.collider.CompareTag("Enemy"))
-        {
-            isGrounded = false;
-        }
-    }
+    // protected virtual void OnCollisionExit2D(Collision2D collision)
+    // {
+    //     if (collision.collider.CompareTag("Floor") || collision.collider.CompareTag("Enemy"))
+    //     {
+    //         isGrounded = false;
+    //     }
+    // }
 
     private void SetAnimationStates(float speed, bool jump, bool attack, bool dash, bool damage)
     {
@@ -117,6 +120,8 @@ public class Player : MonoBehaviour
         if (die) return;
         if (context.performed)
         {
+            // Debug.Log("OnJump llamado");
+            // Debug.Log("Esta en piso: " + isGrounded);
             if (isGrounded || jumps < 2)
             {
                 if (isGrounded)
@@ -148,10 +153,12 @@ public class Player : MonoBehaviour
 
     private void OnDash(InputAction.CallbackContext context)
     {
+        Debug.Log("OnDash llamado");
         if (die) return;
+        Debug.Log("Esta en piso: " + isGrounded);
         if (context.performed && isGrounded)
         {
-            // Debug.Log("Haciendo dash");
+            Debug.Log("Haciendo dash");
             onDash = true;
             AudioManager.instance.PlayProtaDash();
             rb.AddForce(direction.normalized * force, ForceMode2D.Impulse);
@@ -160,9 +167,12 @@ public class Player : MonoBehaviour
 
     private void OnAttack(InputAction.CallbackContext context)
     {
+        Debug.Log("OnAttack llamado");
         if (die) return;
+        Debug.Log("Esta en piso: " + isGrounded);
         if (context.performed && !attacking && isGrounded)
         {
+            Debug.Log("Haciendo ataque");
             attacking = true;
             PlayAttackSound();
             AudioManager.instance.PlayWarriorAttack();
@@ -183,7 +193,7 @@ public class Player : MonoBehaviour
         // Debug.Log(gameObject.name + " ha recibido " + damageAmount + " de daño. Vida restante: " + life);
 
         onDamage = true;
-         AudioManager.instance.PlayProtaDamage();
+        AudioManager.instance.PlayProtaDamage();
 
         if (life <= 0)
         {

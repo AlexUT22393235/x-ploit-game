@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class Filllife : MonoBehaviour
 {
@@ -8,22 +9,34 @@ public class Filllife : MonoBehaviour
 
     private float maxLife;
 
-    void Start()
+    IEnumerator Start()
     {
+        // 1. Esperamos un frame al inicio (buena práctica para dejar que otros Awake corran)
+        yield return null;
+
+        // 2. Buscamos al Player
         player = FindFirstObjectByType<Player>();
 
         if (player != null)
         {
-            maxLife = player.life; 
+            // --- ÉXITO: Player encontrado ---
+            maxLife = player.life;
+            fillLife.fillAmount = 1f;
+
+            // Opcional: Debug para confirmar
+            // Debug.Log("UI Vida: Player encontrado, barra inicializada.");
         }
         else
         {
-            Debug.LogError("No se encontró el componente 'Player' en la escena. Deshabilitando el script Filllife.");
-            enabled = false;
-            return;
-        }
+            // --- FALLO: Player no encontrado aún ---
+            // Debug.LogWarning("UI Vida: No encuentro al Player, reintentando en 0.5s...");
 
-        fillLife.fillAmount = 1f;
+            // 3. Esperamos medio segundo
+            yield return new WaitForSeconds(0.5f);
+
+            // 4. Nos volvemos a llamar a nosotros mismos para reintentar
+            StartCoroutine(Start());
+        }
     }
 
     void Update()

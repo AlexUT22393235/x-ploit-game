@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System; 
+using System.Collections;
+using System;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -10,9 +11,9 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
 
     private bool isPaused = false;
-    
+
     [Tooltip("El nombre EXACTO de la escena del menú principal.")]
-    private const string MainMenuSceneName = "MainMenu"; 
+    private const string MainMenuSceneName = "MainMenu";
 
     private string[] nonGameScenes = { "MainMenu", "Intro", "FinalScene" };
 
@@ -23,7 +24,7 @@ public class PauseMenu : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            
+
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else
@@ -31,7 +32,7 @@ public class PauseMenu : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
     void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
@@ -47,7 +48,7 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 1f;
             isPaused = false;
             pauseMenuUI.SetActive(false);
-            
+
             Debug.Log("Cargada escena de juego. Pausa disponible.");
         }
         else
@@ -55,11 +56,11 @@ public class PauseMenu : MonoBehaviour
             pauseMenuUI.SetActive(false);
             Time.timeScale = 1f;
             isPaused = false;
-            
+
             Debug.Log($"Cargada escena {scene.name}. Pausa deshabilitada.");
         }
     }
-    
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && IsGameScene(SceneManager.GetActiveScene().name))
@@ -74,7 +75,7 @@ public class PauseMenu : MonoBehaviour
             }
         }
     }
-    
+
     private bool IsGameScene(string sceneName)
     {
         foreach (string name in nonGameScenes)
@@ -84,16 +85,16 @@ public class PauseMenu : MonoBehaviour
                 return false;
             }
         }
-        return true; 
+        return true;
     }
 
- 
+
     public void ResumeGame()
     {
         pauseMenuUI.SetActive(false);
-        
+
         Time.timeScale = 1f;
-        
+
         isPaused = false;
         Debug.Log("Juego reanudado.");
     }
@@ -101,19 +102,19 @@ public class PauseMenu : MonoBehaviour
     public void PauseGame()
     {
         pauseMenuUI.SetActive(true);
-        
+
         Time.timeScale = 0f;
-        
+
         isPaused = true;
         Debug.Log("Juego pausado.");
     }
 
     public void LoadMenu()
     {
-        Time.timeScale = 1f; 
+        Time.timeScale = 1f;
         isPaused = false;
-        
-        SceneManager.LoadScene(MainMenuSceneName);
+        SceneManager.LoadScene("MainMenu"); 
+
         Debug.Log($"Cargando escena: {MainMenuSceneName}");
     }
 }
