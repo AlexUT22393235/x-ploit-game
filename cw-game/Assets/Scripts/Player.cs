@@ -20,6 +20,9 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
 
+    //Variable para almacenar el tipo de superficie actual
+    private SurfaceType currentSurface = SurfaceType.Default;
+
     protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -71,22 +74,37 @@ public class Player : MonoBehaviour
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        // Solo detectamos suelo si la etiqueta es correcta
         if (collision.collider.CompareTag("Floor") || collision.collider.CompareTag("Enemy"))
         {
-            // Debug.Log("Colisión con suelo o enemigo detectada.");
-            // Recorremos los puntos de contacto para ver la dirección del golpe
             foreach (ContactPoint2D contact in collision.contacts)
             {
-                // Debug.Log("Normal del contacto: " + contact.normal);
-                // Si la normal apunta hacia arriba (aprox), significa que pisamos algo
                 if (contact.normal.y > 0.5f)
                 {
-                    // Debug.Log("El jugador ha aterrizado.");
+                    // DEBUG 1: Confirmamos que tocó suelo físico
+                    // Debug.Log($"[Player] Aterrizaje detectado sobre: {collision.gameObject.name}");
+
                     isGrounded = true;
                     jumping = false;
-                    jumps = 0; // Es buena práctica resetearlo aquí también visualmente
-                    break; // Ya encontramos suelo, dejamos de buscar
+                    jumps = 0;
+
+                    // --- DETECCIÓN DE SUPERFICIE ---
+                    SurfaceData surfaceInfo = collision.gameObject.GetComponent<SurfaceData>();
+
+                    if (surfaceInfo != null)
+                    {
+                        currentSurface = surfaceInfo.surfaceType;
+                        // DEBUG 2: Confirmamos que detectó el script SurfaceIdentifier
+                        Debug.Log($"[Player] 🦶 Superficie DETECTADA: {currentSurface}");
+                    }
+                    else
+                    {
+                        currentSurface = SurfaceType.Default;
+                        // DEBUG 3: Confirmamos que NO detectó script y usó Default
+                        Debug.Log($"[Player] 🦶 Superficie NO tiene script. Usando: {currentSurface}");
+                    }
+                    // -------------------------------
+
+                    break;
                 }
             }
         }
@@ -100,6 +118,45 @@ public class Player : MonoBehaviour
     //     }
     // }
 
+    // 3. EL SWITCH PRINCIPAL (Este método será llamado por la Animación)
+    public void PlayFootstepSound()
+    {
+        // DEBUG 4: Este mensaje SOLO sale si el Evento de Animación funciona
+        Debug.Log("[Player] 🎬 Evento de Animación llamado: PlayFootstepSound");
+
+        if (isGrounded)
+        {
+            Debug.Log($"[Player] 🔊 Intentando reproducir sonido para: {currentSurface}");
+
+            switch (currentSurface)
+            {
+                case SurfaceType.Snow:
+                    AudioManager.instance.PlayFootstepSnow();
+                    break;
+
+                case SurfaceType.Stone:
+                    AudioManager.instance.PlayFootstepStone();
+                    break;
+
+                case SurfaceType.Ice:
+                    AudioManager.instance.PlayFootstepIce();
+                    break;
+                
+                case SurfaceType.ColapsedPlatform:
+                    AudioManager.instance.PlayFootstepColapsed();
+                    break;
+
+                default:
+                    AudioManager.instance.PlayFootstepStone();
+                    break;
+            }
+        }
+        else
+        {
+            // DEBUG 5: Si sale esto, la animación corrió pero el personaje estaba en el aire
+            Debug.LogWarning("[Player] ❌ Evento ignorado: El jugador NO está en el suelo (isGrounded = false).");
+        }
+    }
     private void SetAnimationStates(float speed, bool jump, bool attack, bool dash, bool damage)
     {
         animator.SetFloat("Speed", speed);
@@ -182,7 +239,7 @@ public class Player : MonoBehaviour
     protected virtual void PlayAttackSound()
     {
         // Si el script Player se usa directamente en el Guerrero, sonará esto:
-         AudioManager.instance.PlayWarriorAttack();
+        AudioManager.instance.PlayWarriorAttack();
     }
 
     public virtual void TakeDamage(int damageAmount)

@@ -15,6 +15,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip backgroundGame2;
     public AudioClip backgroundGame3;
     public AudioClip backgroundGame4; // Agregado según tu lista
+    
+    [Header("--- Audio Boss Batle ---")]
+
+    public AudioClip backgroundBossBattle;
 
     [Header("--- Audio Clip WonLost ---")]
     public AudioClip backgroundGameOver;
@@ -118,8 +122,8 @@ public class AudioManager : MonoBehaviour
                 PlayMusic(backgroundGame3, true);
                 break;
 
-            case "GameOverScene":
-                PlayMusic(backgroundGameOver, false);
+            case "BossBattle":
+                PlayMusic(backgroundBossBattle, true);
                 break;
 
             default:
@@ -128,6 +132,8 @@ public class AudioManager : MonoBehaviour
     }
 
     // --- MÉTODOS DE MÚSICA Y SFX GENÉRICOS ---
+
+
 
     public void PlayMusic(AudioClip clip, bool shouldLoop = true)
     {
@@ -266,6 +272,18 @@ public class AudioManager : MonoBehaviour
     {
         if (Random.value > 0.5f) PlaySFX(surfaceWalkStone1);
         else PlaySFX(surfaceWalkStone2);
+    }
+
+    public void PlayFootstepIce()
+    {
+        if (Random.value > 0.5f) PlaySFX(surfaceIceSlice1);
+        else PlaySFX(surfaceIceSlice2);
+    }
+
+    public void PlayFootstepColapsed()
+    {
+        if (Random.value > 0.5f) PlaySFX(surfaceColapsedPlatform);
+        else PlaySFX(surfaceColapsedPlatform);
     }
 
 
